@@ -20,7 +20,7 @@ import {
   CommandList,
   CommandSeparator,
 } from "@/components/ui/command";
-import { MENU_NAV_ITEMS, MENU_THEME_ITEMS } from "@/config/menu-contants";
+import { MENU_NAV_ITEMS, MENU_THEME_ITEMS } from "@/config/menu-config";
 import type { MenuLinkItem } from "@/types";
 
 import { Button } from "../ui/button";

@@ -9,7 +9,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { MENU_NAV_ITEMS } from "@/config/menu-contants";
+import { MENU_NAV_ITEMS } from "@/config/menu-config";
 import { cn } from "@/lib/utils";
 
 export default function MobileNav({ className }: { className?: string }) {

@@ -3,14 +3,14 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { MENU_NAV_ITEMS } from "@/config/menu-contants";
+import { MENU_NAV_ITEMS } from "@/config/menu-config";
 import { cn } from "@/lib/utils";
 import type { MenuLinkItem } from "@/types";
 
 export default function DesktopNav({ className }: { className?: string }) {
   const pathname = usePathname();
   return (
-    <nav className={cn("items-center gap-4", className)}>
+    <nav className={cn(className)}>
       {MENU_NAV_ITEMS.map((item) => (
         <NavItem
           key={item.title}
