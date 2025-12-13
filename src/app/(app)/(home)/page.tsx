@@ -1,4 +1,5 @@
 import { About } from "@/components/about";
+import { Blog } from "@/components/blog";
 import { GitHubContributions } from "@/components/github-contributions";
 import Overview from "@/components/overview";
 import ProfileHeader from "@/components/profile-header";
@@ -21,6 +22,9 @@ export default function Home() {
       <Separator />
 
       <GitHubContributions />
+      <Separator />
+
+      <Blog />
     </div>
   );
 }
