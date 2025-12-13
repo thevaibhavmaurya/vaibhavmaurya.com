@@ -7,8 +7,8 @@ import MobileNav from "./mobile-nav";
 
 export const Header = () => {
   return (
-    <header className="sticky top-0 overflow-x-hidden bg-background px-2 pt-2">
-      <div className="screen-line-before screen-line-after mx-auto flex h-12 max-w-3xl items-center justify-between gap-2 border-x border-border px-2">
+    <header className="sticky top-0 z-50 overflow-x-hidden bg-background px-2 pt-2">
+      <div className="screen-line-before screen-line-after mx-auto flex h-12 max-w-3xl items-center justify-between gap-2 border-x border-edge px-2">
         <Link href="/" className="h-8 [&_svg]:h-full">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -28,7 +28,7 @@ export const Header = () => {
         <DesktopNav className="hidden items-center gap-4 md:flex" />
         <Menu />
         <ThemeToggle />
-        <span className="block h-2/4 w-px bg-border md:hidden" />
+        <span className="block h-2/4 w-px bg-edge md:hidden" />
         <MobileNav className="md:hidden" />
       </div>
     </header>

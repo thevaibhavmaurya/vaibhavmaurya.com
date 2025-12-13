@@ -15,8 +15,9 @@ export enum Themes {
   SYSTEM = "system",
 }
 
-declare global {
-  interface String {
-    capitalizeFirstLetter(): string;
-  }
-}
+export type SocialLink = {
+  icon: string;
+  title: string;
+  description?: string;
+  href: string;
+};

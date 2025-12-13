@@ -1,4 +1,4 @@
-import { USER } from "@/config/user-config";
+import { USER } from "@/data/user";
 
 import IndiaFlagIcon from "./icons/india-flag-icon";
 import VerifiedIcon from "./icons/verified-icon";
@@ -6,12 +6,12 @@ import FlipSentences from "./ui/flip-sentences";
 
 export default function ProfileHeader() {
   return (
-    <div className="border-edge flex border-x">
-      <div className="border-edge relative shrink-0 border-r">
+    <div className="flex border-x border-edge">
+      <div className="relative shrink-0 border-r border-edge">
         <div className="mx-0.5 my-[3px]">
           <img
-            className="size-32 rounded-full ring-1 ring-border ring-offset-2 ring-offset-background select-none sm:size-40"
-            alt={`${USER.fullName()}'s avatar`}
+            className="size-32 rounded-full opacity-5 ring-1 ring-edge ring-offset-2 ring-offset-background select-none sm:size-40"
+            alt={`${USER.displayName}'s avatar`}
             src="https://pbs.twimg.com/profile_images/1783518704266854401/cctY_h1P_400x400.jpg"
             fetchPriority="high"
           />
@@ -22,7 +22,7 @@ export default function ProfileHeader() {
           rel="noreferrer"
           className="absolute top-0 left-0"
         >
-          <IndiaFlagIcon className="h-8" />
+          <IndiaFlagIcon className="h-6 md:h-8" />
         </a>
       </div>
 
@@ -36,10 +36,10 @@ export default function ProfileHeader() {
           </div>
         </div>
 
-        <div className="border-edge border-t">
+        <div className="border-t border-edge">
           <div className="flex items-center gap-2 pl-4">
-            <h1 className="-translate-y-px text-3xl font-semibold">
-              {USER.fullName()}
+            <h1 className="-translate-y-px text-xl font-semibold md:text-3xl">
+              {USER.displayName}
             </h1>
 
             <VerifiedIcon
@@ -48,7 +48,7 @@ export default function ProfileHeader() {
             />
           </div>
 
-          <div className="border-edge h-12.5 border-t py-1 pl-4 sm:h-9">
+          <div className="h-12.5 border-t border-edge py-1 pl-4 sm:h-9">
             <FlipSentences
               className="font-mono text-sm text-balance text-muted-foreground"
               variants={{

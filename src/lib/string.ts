@@ -1,0 +1,9 @@
+export function capitalizeFirstLetter(str: string) {
+  if (!str) return str;
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+export function decodeEmail(email: string) {
+  if (!email) return email;
+  return atob(email);
+}

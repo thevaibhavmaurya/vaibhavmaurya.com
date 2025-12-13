@@ -1,8 +1,6 @@
 "use client";
 
-import "@/lib/string-prototypes";
-
-import { useCommandState } from "cmdk";
+import { CommandItem, useCommandState } from "cmdk";
 import type { LucideIcon } from "lucide-react";
 import { CornerDownLeftIcon, MonitorIcon, Search } from "lucide-react";
 import Image from "next/image";
@@ -16,11 +14,11 @@ import {
   CommandEmpty,
   CommandGroup,
   CommandInput,
-  CommandItem,
   CommandList,
   CommandSeparator,
 } from "@/components/ui/command";
 import { MENU_NAV_ITEMS, MENU_THEME_ITEMS } from "@/config/menu-config";
+import { capitalizeFirstLetter } from "@/lib/string";
 import type { MenuLinkItem } from "@/types";
 
 import { Button } from "../ui/button";
@@ -94,7 +92,7 @@ export default function Menu() {
           <CommandGroup heading="Theme">
             {MENU_THEME_ITEMS.map((item) => (
               <CommandItem
-                key={item.title.capitalizeFirstLetter()}
+                key={capitalizeFirstLetter(item.title)}
                 keywords={["theme"]}
                 onSelect={createThemeHandler(item.title)}
               >
@@ -188,7 +186,7 @@ function CommandMenuFooter() {
     <>
       <div className="flex h-10" />
 
-      <div className="absolute inset-x-0 bottom-0 flex h-10 items-center justify-between gap-2 border-t bg-zinc-100/30 px-4 text-xs font-medium dark:bg-zinc-800/30">
+      <div className="absolute inset-x-0 bottom-0 flex h-10 items-center justify-between gap-2 border border-t bg-zinc-100/30 px-4 text-xs font-medium dark:bg-zinc-800/30">
         <MonitorIcon className="size-6 text-muted-foreground" aria-hidden />
 
         <div className="flex shrink-0 items-center gap-2">
