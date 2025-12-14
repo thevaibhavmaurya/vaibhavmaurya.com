@@ -1,16 +1,16 @@
 import { USER } from "@/data/user";
 
-import IndiaFlagIcon from "./icons/india-flag-icon";
-import VerifiedIcon from "./icons/verified-icon";
-import FlipSentences from "./ui/flip-sentences";
+import { IndiaFlagIcon } from "./icons/india-flag-icon";
+import { VerifiedIcon } from "./icons/verified-icon";
+import { FlipSentences } from "./ui/flip-sentences";
 
-export default function ProfileHeader() {
+export function ProfileHeader() {
   return (
     <div className="flex border-x border-edge">
       <div className="relative shrink-0 border-r border-edge">
         <div className="mx-0.5 my-[3px]">
           <img
-            className="size-32 rounded-full opacity-5 ring-1 ring-edge ring-offset-2 ring-offset-background select-none sm:size-40"
+            className="size-32 rounded-full ring-1 ring-edge ring-offset-2 ring-offset-background select-none sm:size-40"
             alt={`${USER.displayName}'s avatar`}
             src="https://pbs.twimg.com/profile_images/1783518704266854401/cctY_h1P_400x400.jpg"
             fetchPriority="high"

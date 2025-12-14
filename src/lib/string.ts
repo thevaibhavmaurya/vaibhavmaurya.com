@@ -7,3 +7,6 @@ export function decodeEmail(email: string) {
   if (!email) return email;
   return atob(email);
 }
+
+export const normalize = (text: string) =>
+  text.toLowerCase().replaceAll(" ", "");

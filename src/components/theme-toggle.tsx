@@ -1,14 +1,15 @@
 "use client";
 
-import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useCallback, useMemo } from "react";
 
 import { Themes } from "@/types";
 
+import { MoonIcon } from "./animated-icons/moon";
+import { SunMediumIcon } from "./animated-icons/sun-medium";
 import { Button } from "./ui/button";
 
-export default function ThemeToggle() {
+export function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
 
   const isDarkTheme = useMemo(
@@ -27,8 +28,8 @@ export default function ThemeToggle() {
       className="h-8 w-8 rounded-full border bg-input/30"
       onClick={handleTheme}
     >
-      <Moon className="relative hidden [html.dark_&]:block" />
-      <Sun className="relative hidden [html.light_&]:block" />
+      <MoonIcon className="relative hidden [html.dark_&]:block" />
+      <SunMediumIcon className="relative hidden [html.light_&]:block" />
     </Button>
   );
 }

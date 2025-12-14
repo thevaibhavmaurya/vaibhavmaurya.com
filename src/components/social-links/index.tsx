@@ -1,4 +1,5 @@
-import { SOCIAL_LINKS } from "../../data/social-links";
+import { SOCIAL_LINKS } from "@/data/social-links";
+
 import { Panel } from "../panel";
 import { SocialLinkItem } from "./social-link-item";
 

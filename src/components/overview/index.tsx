@@ -14,7 +14,7 @@ import {
 } from "./intro-item";
 import { JobItem } from "./job-item";
 
-export default function Overview() {
+export function Overview() {
   return (
     <Panel>
       <h2 className="sr-only">Overview</h2>

@@ -26,7 +26,7 @@ type Props = {
   onIndexChange?: (index: number) => void;
 };
 
-export default function FlipSentences({
+export function FlipSentences({
   as: Component = motion.p,
   className,
   children,

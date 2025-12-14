@@ -25,7 +25,7 @@ import { Button } from "../ui/button";
 import { Kbd, KbdGroup } from "../ui/kbd";
 import { Separator } from "../ui/separator";
 
-export default function Menu() {
+export function Menu() {
   const [open, setOpen] = useState<boolean>(false);
   const { setTheme } = useTheme();
   const router = useRouter();

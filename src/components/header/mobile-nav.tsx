@@ -12,7 +12,7 @@ import {
 import { MENU_NAV_ITEMS } from "@/config/menu-config";
 import { cn } from "@/lib/utils";
 
-export default function MobileNav({ className }: { className?: string }) {
+export function MobileNav({ className }: { className?: string }) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>

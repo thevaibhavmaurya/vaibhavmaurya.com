@@ -1,9 +1,9 @@
 import Link from "next/link";
 
-import ThemeToggle from "../theme-toggle";
-import DesktopNav from "./desktop-nav";
-import Menu from "./menu";
-import MobileNav from "./mobile-nav";
+import { ThemeToggle } from "../theme-toggle";
+import { DesktopNav } from "./desktop-nav";
+import { Menu } from "./menu";
+import { MobileNav } from "./mobile-nav";
 
 export const Header = () => {
   return (

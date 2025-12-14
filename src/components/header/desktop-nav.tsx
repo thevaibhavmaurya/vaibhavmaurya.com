@@ -7,7 +7,7 @@ import { MENU_NAV_ITEMS } from "@/config/menu-config";
 import { cn } from "@/lib/utils";
 import type { MenuLinkItem } from "@/types";
 
-export default function DesktopNav({ className }: { className?: string }) {
+export function DesktopNav({ className }: { className?: string }) {
   const pathname = usePathname();
   return (
     <nav className={cn(className)}>
