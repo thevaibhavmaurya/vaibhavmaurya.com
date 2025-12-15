@@ -1,6 +1,6 @@
 import { InfinityIcon } from "lucide-react";
 
-import { Markdown } from "@/components/markdown";
+import { Markdown } from "@/components/markdown/markdown";
 import {
   CollapsibleChevronsIcon,
   CollapsibleContent,

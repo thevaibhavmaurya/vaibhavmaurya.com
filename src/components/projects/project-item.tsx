@@ -18,7 +18,7 @@ import { UTM_PARAMS } from "@/config/site-config";
 import { addQueryParams } from "@/lib/url";
 import type { Project } from "@/types/project";
 
-import { Markdown } from "../markdown";
+import { Markdown } from "../markdown/markdown";
 
 export function ProjectItem({
   className,
