@@ -1,5 +1,4 @@
 import { About } from "@/components/about";
-import { Blog } from "@/components/blog";
 import { Divider } from "@/components/divider";
 import { Experiences } from "@/components/experiences";
 import { GitHubContributions } from "@/components/github-contributions";
@@ -15,7 +14,7 @@ export default function Home() {
       <Divider />
 
       <Overview />
-      <Divider />
+      <Divider className="before:border-b-0" />
 
       <SocialLinks />
       <Divider />
@@ -30,9 +29,6 @@ export default function Home() {
       <Divider />
 
       <Projects />
-      <Divider />
-
-      <Blog />
     </>
   );
 }

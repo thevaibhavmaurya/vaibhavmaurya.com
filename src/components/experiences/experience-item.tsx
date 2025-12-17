@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import type { Experience } from "@/types/experience";
+import type { Experience } from "@/types";
 
 import { ExperiencePositionItem } from "./experience-position-item";
 
@@ -31,8 +31,8 @@ export function ExperienceItem({ experience }: { experience: Experience }) {
 
         {experience.isCurrentEmployer && (
           <span className="relative flex items-center justify-center">
-            <span className="bg-info absolute inline-flex size-3 animate-ping rounded-full opacity-50" />
-            <span className="bg-info relative inline-flex size-2 rounded-full" />
+            <span className="absolute inline-flex size-3 animate-ping rounded-full bg-info opacity-50" />
+            <span className="relative inline-flex size-2 rounded-full bg-info" />
             <span className="sr-only">Current Employer</span>
           </span>
         )}

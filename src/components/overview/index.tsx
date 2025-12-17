@@ -16,7 +16,7 @@ import { JobItem } from "./job-item";
 
 export function Overview() {
   return (
-    <Panel>
+    <Panel id="overview" className="screen-line-after">
       <h2 className="sr-only">Overview</h2>
       <PanelContent className="space-y-2.5">
         {USER.jobs.map((job, index) => {

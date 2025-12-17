@@ -9,7 +9,7 @@ export function GitHubContributions() {
   const contributions = getGitHubContributions();
 
   return (
-    <Panel>
+    <Panel id="github-contributions" className="screen-line-after">
       <h2 className="sr-only">GitHub Contributions</h2>
 
       <Suspense fallback={<GitHubContributionFallback />}>

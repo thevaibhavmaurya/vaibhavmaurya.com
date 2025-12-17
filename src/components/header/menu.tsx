@@ -1,6 +1,6 @@
 "use client";
 
-import { CommandItem, useCommandState } from "cmdk";
+import { useCommandState } from "cmdk";
 import type { LucideIcon } from "lucide-react";
 import { CornerDownLeftIcon, MonitorIcon, Search } from "lucide-react";
 import Image from "next/image";
@@ -14,6 +14,7 @@ import {
   CommandEmpty,
   CommandGroup,
   CommandInput,
+  CommandItem,
   CommandList,
   CommandSeparator,
 } from "@/components/ui/command";
@@ -79,12 +80,12 @@ export function Menu() {
           <Kbd className="w-5 min-w-5">K</Kbd>
         </KbdGroup>
       </Button>
-      <CommandDialog className="rounded-2xl" open={open} onOpenChange={setOpen}>
+      <CommandDialog open={open} onOpenChange={setOpen}>
         <CommandInput placeholder="Type a command or search..." />
-        <CommandList className="h-80">
+        <CommandList className="min-h-80 supports-timeline-scroll:scroll-fade-y">
           <CommandEmpty>No results found.</CommandEmpty>
           <CommandLinkGroup
-            heading="Pages"
+            heading="Links"
             links={MENU_NAV_ITEMS}
             onLinkSelect={handleOpenLink}
           />
@@ -132,7 +133,7 @@ function CommandLinkGroup({
           >
             {link?.iconImage ? (
               <Image
-                className="corner-squircle rounded-sm supports-corner-shape:rounded-[50%]"
+                className="rounded-sm corner-squircle supports-corner-shape:rounded-[50%]"
                 src={link.iconImage}
                 alt={link.title}
                 width={16}

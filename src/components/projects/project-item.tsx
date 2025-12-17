@@ -16,9 +16,9 @@ import {
 import { ProseMono } from "@/components/ui/typography";
 import { UTM_PARAMS } from "@/config/site-config";
 import { addQueryParams } from "@/lib/url";
-import type { Project } from "@/types/project";
+import type { Project } from "@/types";
 
-import { Markdown } from "../markdown/markdown";
+import { Markdown } from "../markdown";
 
 export function ProjectItem({
   className,
@@ -32,9 +32,13 @@ export function ProjectItem({
   const isSinglePeriod = end === start;
 
   return (
-    <CollapsibleWithContext defaultOpen={project.isExpanded} asChild>
+    <CollapsibleWithContext
+      id={project.id}
+      defaultOpen={project.isExpanded}
+      asChild
+    >
       <div className={className}>
-        <div className="hover:bg-accent2 flex items-center">
+        <div className="flex items-center hover:bg-accent2">
           {project.logo ? (
             <Image
               src={project.logo}
@@ -116,7 +120,7 @@ export function ProjectItem({
 
         <CollapsibleContent className="group overflow-hidden duration-300 data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down">
           <div className="border-t border-edge shadow-inner">
-            <div className="group-data-[state=closed]:animate-fade-out group-data-[state=open]:animate-fade-in space-y-4 p-4 duration-300">
+            <div className="space-y-4 p-4 duration-300 group-data-[state=closed]:animate-fade-out group-data-[state=open]:animate-fade-in">
               {project.description && (
                 <ProseMono>
                   <Markdown>{project.description}</Markdown>

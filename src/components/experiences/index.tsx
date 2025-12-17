@@ -5,9 +5,9 @@ import { ExperienceItem } from "./experience-item";
 
 export function Experiences() {
   return (
-    <Panel id="experience">
+    <Panel id="experiences">
       <PanelHeader>
-        <PanelTitle>Experience</PanelTitle>
+        <PanelTitle>Experiences</PanelTitle>
       </PanelHeader>
 
       <div className="pr-2 pl-4">

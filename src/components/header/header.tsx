@@ -7,7 +7,7 @@ import { MobileNav } from "./mobile-nav";
 
 export const Header = () => {
   return (
-    <header className="sticky top-0 z-50 overflow-x-hidden bg-background px-2 pt-2">
+    <header className="sticky top-0 z-50 bg-background pt-2">
       <div className="screen-line-before screen-line-after mx-auto flex h-12 max-w-3xl items-center justify-between gap-2 border-x border-edge px-2">
         <Link href="/" className="h-8 [&_svg]:h-full">
           <svg

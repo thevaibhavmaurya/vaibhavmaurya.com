@@ -2,11 +2,12 @@ import { USER } from "@/data/user";
 
 import { IndiaFlagIcon } from "./icons/india-flag-icon";
 import { VerifiedIcon } from "./icons/verified-icon";
+import { Panel } from "./panel";
 import { FlipSentences } from "./ui/flip-sentences";
 
 export function ProfileHeader() {
   return (
-    <div className="flex border-x border-edge">
+    <Panel id="profile" className="screen-line-after flex border-x border-edge">
       <div className="relative shrink-0 border-r border-edge">
         <div className="mx-0.5 my-[3px]">
           <img
@@ -62,6 +63,6 @@ export function ProfileHeader() {
           </div>
         </div>
       </div>
-    </div>
+    </Panel>
   );
 }

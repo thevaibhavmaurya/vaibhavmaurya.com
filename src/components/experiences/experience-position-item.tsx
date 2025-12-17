@@ -1,6 +1,6 @@
 import { InfinityIcon } from "lucide-react";
 
-import { Markdown } from "@/components/markdown/markdown";
+import { Markdown } from "@/components/markdown";
 import {
   CollapsibleChevronsIcon,
   CollapsibleContent,
@@ -10,7 +10,7 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { ProseMono } from "@/components/ui/typography";
 import { cn } from "@/lib/utils";
-import type { ExperiencePosition } from "@/types/experience";
+import type { ExperiencePosition } from "@/types";
 
 import { Tag } from "../ui/tag";
 import { ExperienceIcon } from "./experience-position-icon";
@@ -29,7 +29,7 @@ export function ExperiencePositionItem({
         <CollapsibleTrigger
           className={cn(
             "block w-full text-left",
-            "hover:before:bg-accent2 relative before:absolute before:-top-1 before:-right-1 before:-bottom-1.5 before:left-7 before:-z-1 before:rounded-lg"
+            "relative before:absolute before:-top-1 before:-right-1 before:-bottom-1.5 before:left-7 before:-z-1 before:rounded-lg hover:before:bg-accent2"
           )}
         >
           <div className="relative z-1 mb-1 flex items-center gap-3">

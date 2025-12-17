@@ -22,7 +22,7 @@ export default function RootLayout({
       className={`${ibmPlexSans.variable} ${geistMono.variable}`}
       suppressHydrationWarning
     >
-      <body>
+      <body className="max-w-screen overflow-x-hidden px-2">
         <NuqsAdapter>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             {children}

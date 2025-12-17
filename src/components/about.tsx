@@ -1,4 +1,4 @@
-import { Markdown } from "@/components/markdown/markdown";
+import { Markdown } from "@/components/markdown";
 import { USER } from "@/data/user";
 
 import { Panel, PanelContent, PanelHeader, PanelTitle } from "./panel";
@@ -6,7 +6,7 @@ import { ProseMono } from "./ui/typography";
 
 export function About() {
   return (
-    <Panel id="about">
+    <Panel id="about" className="screen-line-after">
       <PanelHeader>
         <PanelTitle>About</PanelTitle>
       </PanelHeader>

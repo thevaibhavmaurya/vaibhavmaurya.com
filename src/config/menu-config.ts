@@ -1,10 +1,10 @@
 import {
-  Briefcase,
   Code,
   MonitorIcon,
   MoonStarIcon,
   NotebookPen,
   SunMediumIcon,
+  UserIcon,
 } from "lucide-react";
 
 import type { MenuLinkItem } from "@/types";
@@ -12,19 +12,19 @@ import { Themes } from "@/types";
 
 export const MENU_NAV_ITEMS: MenuLinkItem[] = [
   {
-    title: "Portfolio",
-    href: "/",
-    icon: Briefcase,
+    title: "About",
+    href: "",
+    icon: UserIcon,
+  },
+  {
+    title: "Experiences",
+    href: "#experiences",
+    icon: NotebookPen,
   },
   {
     title: "Projects",
-    href: "/projects",
+    href: "#projects",
     icon: Code,
-  },
-  {
-    title: "Blogs",
-    href: "/blogs",
-    icon: NotebookPen,
   },
 ] as const;
 
