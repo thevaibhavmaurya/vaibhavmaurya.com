@@ -2,6 +2,7 @@ import { GlobeIcon, MapPinIcon, MarsIcon, VenusIcon } from "lucide-react";
 
 import { USER } from "@/data/user";
 import { urlToName } from "@/lib/url";
+import { URL_HASH_TYPE } from "@/types";
 
 import { Panel, PanelContent } from "../panel";
 import { CurrentLocalTimeItem } from "./current-local-time-item";
@@ -16,7 +17,7 @@ import { JobItem } from "./job-item";
 
 export function Overview() {
   return (
-    <Panel id="overview" className="screen-line-after">
+    <Panel id={URL_HASH_TYPE.OVERVIEW} className="screen-line-after">
       <h2 className="sr-only">Overview</h2>
       <PanelContent className="space-y-2.5">
         {USER.jobs.map((job, index) => {

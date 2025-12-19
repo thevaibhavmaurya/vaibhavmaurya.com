@@ -39,9 +39,9 @@ export function ProjectItem({
     >
       <div className={className}>
         <div className="flex items-center hover:bg-accent2">
-          {project.logo ? (
+          {project.iconImage ? (
             <Image
-              src={project.logo}
+              src={project.iconImage}
               alt={project.title}
               width={32}
               height={32}
@@ -94,7 +94,7 @@ export function ProjectItem({
                 <TooltipTrigger asChild>
                   <a
                     className="relative flex size-6 shrink-0 items-center justify-center text-muted-foreground after:absolute after:-inset-2 hover:text-foreground"
-                    href={addQueryParams(project.link, UTM_PARAMS)}
+                    href={addQueryParams(project.href ?? "", UTM_PARAMS)}
                     target="_blank"
                     rel="noopener"
                   >

@@ -4,15 +4,22 @@ import type { Experience } from "@/types";
 
 import { ExperiencePositionItem } from "./experience-position-item";
 
-export function ExperienceItem({ experience }: { experience: Experience }) {
+export function ExperienceItem({
+  experience,
+  fallbackImage,
+}: {
+  experience: Experience;
+  fallbackImage: string;
+}) {
+  const image = experience.iconImage ?? fallbackImage;
   return (
-    <div className="screen-line-after space-y-4 py-4">
+    <div className="screen-line-after space-y-4 py-4" id={experience.id}>
       <div className="flex items-center gap-3">
         <div className="flex size-6 shrink-0 items-center justify-center select-none">
-          {experience.companyLogo ? (
+          {image ? (
             <Image
-              src={experience.companyLogo}
-              alt={experience.companyName}
+              src={image}
+              alt={experience.title}
               width={24}
               height={24}
               quality={100}
@@ -25,9 +32,7 @@ export function ExperienceItem({ experience }: { experience: Experience }) {
           )}
         </div>
 
-        <h3 className="text-lg leading-snug font-medium">
-          {experience.companyName}
-        </h3>
+        <h3 className="text-lg leading-snug font-medium">{experience.title}</h3>
 
         {experience.isCurrentEmployer && (
           <span className="relative flex items-center justify-center">

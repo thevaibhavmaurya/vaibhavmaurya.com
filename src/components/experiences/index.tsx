@@ -1,18 +1,23 @@
 import { EXPERIENCES } from "@/data/experiences";
+import { URL_HASH_TYPE } from "@/types";
 
 import { Panel, PanelHeader, PanelTitle } from "../panel";
 import { ExperienceItem } from "./experience-item";
 
 export function Experiences() {
   return (
-    <Panel id="experiences">
+    <Panel id={URL_HASH_TYPE.EXPERIENCES}>
       <PanelHeader>
         <PanelTitle>Experiences</PanelTitle>
       </PanelHeader>
 
-      <div className="pr-2 pl-4">
+      <div className="pr-2 pl-4 *:[[id]]:scroll-mt-14">
         {EXPERIENCES.map((experience) => (
-          <ExperienceItem key={experience.id} experience={experience} />
+          <ExperienceItem
+            key={experience.id}
+            experience={experience}
+            fallbackImage={"/images/experience.png"}
+          />
         ))}
       </div>
     </Panel>

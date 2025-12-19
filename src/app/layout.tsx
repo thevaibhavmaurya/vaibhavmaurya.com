@@ -1,9 +1,8 @@
 import "../styles/globals.css";
 
 import type { Metadata } from "next";
-import { NuqsAdapter } from "nuqs/adapters/next/app";
 
-import { ThemeProvider } from "@/components/theme-provider";
+import { Providers } from "@/components/providers";
 import { geistMono, ibmPlexSans } from "@/lib/fonts";
 
 export const metadata: Metadata = {
@@ -23,11 +22,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="max-w-screen overflow-x-hidden px-2">
-        <NuqsAdapter>
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            {children}
-          </ThemeProvider>
-        </NuqsAdapter>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

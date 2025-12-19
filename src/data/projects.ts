@@ -1,13 +1,14 @@
+import { generateProjectHash } from "@/lib/url";
 import type { Project } from "@/types";
 
 export const PROJECTS: Project[] = [
   {
-    id: "react-wheel-picker",
+    id: generateProjectHash("react-wheel-picker"),
     title: "React Wheel Picker",
     period: {
       start: "05.2025",
     },
-    link: "https://react-wheel-picker.chanhdai.com",
+    href: "https://react-wheel-picker.chanhdai.com",
     skills: [
       "Open Source",
       "React",
@@ -26,16 +27,17 @@ export const PROJECTS: Project[] = [
 - 🎨 Unstyled components for complete style customization
 - ⚡️ Easy installation via shadcn CLI
 `,
-    logo: "https://assets.chanhdai.com/images/project-logos/react-wheel-picker.svg",
+    iconImage:
+      "https://assets.chanhdai.com/images/project-logos/react-wheel-picker.svg",
     isExpanded: true,
   },
   {
-    id: "chanhdaidotcom",
+    id: generateProjectHash("chanhdaidotcom"),
     title: "chanhdai.com",
     period: {
       start: "01.2025",
     },
-    link: "https://github.com/ncdai/chanhdai.com",
+    href: "https://github.com/ncdai/chanhdai.com",
     skills: [
       "Open Source",
       "Next.js 16",
@@ -73,15 +75,16 @@ export const PROJECTS: Project[] = [
   - Live preview & code snippets
   - Beautiful, readable code blocks
   - One-click command blocks (pnpm, npm, yarn, bun)`,
-    logo: "https://assets.chanhdai.com/images/project-logos/chanhdaidotcom.svg",
+    iconImage:
+      "https://assets.chanhdai.com/images/project-logos/chanhdaidotcom.svg",
   },
   {
-    id: "quaricdotcom",
+    id: generateProjectHash("quaricdotcom"),
     title: "quaric.com",
     period: {
       start: "03.2024",
     },
-    link: "https://quaric.com",
+    href: "https://quaric.com",
     skills: [
       "Company Project",
       "Next.js 15",
@@ -93,15 +96,16 @@ export const PROJECTS: Project[] = [
       "Docker Compose",
       "NGINX",
     ],
-    logo: "https://assets.chanhdai.com/images/project-logos/quaricdotcom.svg",
+    iconImage:
+      "https://assets.chanhdai.com/images/project-logos/quaricdotcom.svg",
   },
   {
-    id: "zadark",
+    id: generateProjectHash("zadark"),
     title: "ZaDark",
     period: {
       start: "01.2022",
     },
-    link: "https://zadark.com",
+    href: "https://zadark.com",
     skills: [
       "Pet Project",
       "Open Source",
@@ -114,16 +118,16 @@ export const PROJECTS: Project[] = [
 - 80k+ downloads on SourceForge (awarded Community Leader badge by SourceForge)
 - 20k+ active users via Chrome Web Store (as of Sep 2025)
 - Bronze Medal — 10th Design, Manufacturing, and Application Award 2022`,
-    logo: "https://assets.chanhdai.com/images/project-logos/zadark.svg",
+    iconImage: "https://assets.chanhdai.com/images/project-logos/zadark.svg",
   },
   {
-    id: "qabox",
+    id: generateProjectHash("qabox"),
     title: "QABox",
     period: {
       start: "07.2023",
       end: "07.2023",
     },
-    link: "https://github.com/ncdai/qabox",
+    href: "https://github.com/ncdai/qabox",
     skills: [
       "University Project",
       "PHP",
@@ -136,13 +140,13 @@ export const PROJECTS: Project[] = [
       "- Course: Distributed Applications — FIT@HCMUS\n- Project Score: 10/10\n- Source Code: https://github.com/ncdai/qabox",
   },
   {
-    id: "taskbox",
+    id: generateProjectHash("taskbox"),
     title: "TaskBox",
     period: {
       start: "07.2023",
       end: "07.2023",
     },
-    link: "https://github.com/ncdai/taskbox",
+    href: "https://github.com/ncdai/taskbox",
     skills: [
       "University Project",
       "PHP",
@@ -155,13 +159,13 @@ export const PROJECTS: Project[] = [
       "- Course: Distributed Applications — FIT@HCMUS\n- Project Score: 10/10\n- Source Code: https://github.com/ncdai/taskbox",
   },
   {
-    id: "daichat-app",
+    id: generateProjectHash("daichat-app"),
     title: "DaiChat App",
     period: {
       start: "07.2020",
       end: "07.2020",
     },
-    link: "https://www.youtube.com/watch?v=H5U3J_W1low",
+    href: "https://www.youtube.com/watch?v=H5U3J_W1low",
     skills: ["University Project", "Java", "Java Swing", "Java Networking"],
     description: `- Course: Java Application Programming — FIT@HCMUS
 - Requirement: Developed a real-time chat application using Java technologies
@@ -171,13 +175,13 @@ export const PROJECTS: Project[] = [
   - Client: https://github.com/ncdai/ltudjava-summer2020-chatapp_client`,
   },
   {
-    id: "qlsv-app",
+    id: generateProjectHash("qlsv-app"),
     title: "QLSV App",
     period: {
       start: "06.2020",
       end: "06.2020",
     },
-    link: "https://www.youtube.com/watch?v=tG9SZEBrwog",
+    href: "https://www.youtube.com/watch?v=tG9SZEBrwog",
     skills: ["University Project", "Java", "Java Swing", "Hibernate", "MySQL"],
     description: `- Course: Java Application Programming — FIT@HCMUS
 - Requirement: Built a student management system with role-based functionalities using Java technologies
@@ -185,24 +189,24 @@ export const PROJECTS: Project[] = [
 - Source Code: https://github.com/ncdai/ltudjava-summer2020-hibernate`,
   },
   {
-    id: "penphy",
+    id: generateProjectHash("penphy"),
     title: "Penphy",
     period: {
       start: "01.2019",
       end: "08.2019",
     },
-    link: "https://www.youtube.com/watch?v=EdU7rUO-UA4",
+    href: "https://www.youtube.com/watch?v=EdU7rUO-UA4",
     skills: ["Startup Project", "JavaScript", "React Native"],
     description: "2nd Prize — Business Startup Competition 2019",
   },
   {
-    id: "unlimitedstudy",
+    id: generateProjectHash("unlimitedstudy"),
     title: "UnlimitedStudy",
     period: {
       start: "01.2017",
       end: "08.2018",
     },
-    link: "https://muctim.tuoitre.vn/cong-cu-ho-tro-viec-day-va-hoc-55107.htm",
+    href: "https://muctim.tuoitre.vn/cong-cu-ho-tro-viec-day-va-hoc-55107.htm",
     skills: [
       "National Competition",
       "Creative Software",
@@ -220,16 +224,17 @@ export const PROJECTS: Project[] = [
 - 3rd Prize — Can Tho City Young Informatics Contest 2018
 - Reached 7k+ users, mainly high school students in Can Tho City
 - Pilot implemented in high schools across Can Tho City with English quizzes, supervised by English subject specialists from the Can Tho City Department of Education and Training`,
-    logo: "https://assets.chanhdai.com/images/project-logos/unlimitedstudy.webp",
+    iconImage:
+      "https://assets.chanhdai.com/images/project-logos/unlimitedstudy.webp",
   },
   {
-    id: "dmessage",
+    id: generateProjectHash("dmessage"),
     title: "DMessage",
     period: {
       start: "05.2017",
       end: "05.2017",
     },
-    link: "https://github.com/ncdai/DMessage",
+    href: "https://github.com/ncdai/DMessage",
     skills: [
       "Self-learning Project",
       "Pet Project",
@@ -242,13 +247,13 @@ export const PROJECTS: Project[] = [
       "A Messenger clone built to practice real-time communication using Socket.IO. This project showcases my self-learning journey in implementing WebSockets for instant messaging.",
   },
   {
-    id: "study-english",
+    id: generateProjectHash("study-english"),
     title: "Study English",
     period: {
       start: "11.2016",
       end: "12.2017",
     },
-    link: "https://www.youtube.com/watch?v=OYgugvjqU4A",
+    href: "https://www.youtube.com/watch?v=OYgugvjqU4A",
     skills: [
       "National Competition",
       "Creative Software",

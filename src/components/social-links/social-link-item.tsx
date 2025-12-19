@@ -4,7 +4,12 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import type { SocialLink } from "@/types";
 
-export function SocialLinkItem({ icon, title, description, href }: SocialLink) {
+export function SocialLinkItem({
+  iconImage,
+  title,
+  description,
+  href,
+}: SocialLink) {
   return (
     <a
       className={cn(
@@ -19,7 +24,7 @@ export function SocialLinkItem({ icon, title, description, href }: SocialLink) {
       <div className="relative size-12 shrink-0">
         <Image
           className="rounded-xl select-none corner-squircle supports-corner-shape:rounded-[50%]"
-          src={icon}
+          src={iconImage ?? ""}
           alt={title}
           width={48}
           height={48}

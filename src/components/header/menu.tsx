@@ -1,12 +1,12 @@
 "use client";
 
 import { useCommandState } from "cmdk";
-import type { LucideIcon } from "lucide-react";
-import { CornerDownLeftIcon, MonitorIcon, Search } from "lucide-react";
+import type { LucideProps } from "lucide-react";
+import { BoxIcon, CornerDownLeftIcon, Monitor, SearchIcon } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useTheme } from "next-themes";
-import { Fragment, useCallback, useState } from "react";
+import React, { useCallback, useState } from "react";
 import { useHotkeys } from "react-hotkeys-hook";
 
 import {
@@ -19,17 +19,20 @@ import {
   CommandSeparator,
 } from "@/components/ui/command";
 import { MENU_NAV_ITEMS, MENU_THEME_ITEMS } from "@/config/menu-config";
+import { EXPERIENCES } from "@/data/experiences";
+import { PROJECTS } from "@/data/projects";
+import { SOCIAL_LINKS } from "@/data/social-links";
 import { capitalizeFirstLetter } from "@/lib/string";
-import type { MenuLinkItem } from "@/types";
+import type { Experience, MenuLinkItem, Project, Themes } from "@/types";
 
 import { Button } from "../ui/button";
 import { Kbd, KbdGroup } from "../ui/kbd";
 import { Separator } from "../ui/separator";
 
 export function Menu() {
-  const [open, setOpen] = useState<boolean>(false);
-  const { setTheme } = useTheme();
   const router = useRouter();
+  const { setTheme } = useTheme();
+  const [open, setOpen] = useState(false);
 
   useHotkeys("mod+k, slash", (e) => {
     e.preventDefault();
@@ -37,20 +40,30 @@ export function Menu() {
   });
 
   const handleOpenLink = useCallback(
-    (href: string, openInNewTab = false) => {
+    (object: CommandLink, isId?: boolean) => {
       setOpen(false);
 
-      if (openInNewTab) {
-        window.open(href, "_blank", "noopener");
+      const link = "id" in object && isId ? `#${object?.id}` : object.href;
+
+      if (object.openInNewTab) {
+        window.open(link, "_blank", "noopener");
       } else {
-        router.push(href);
+        const id = link?.replace(/[#\/]/, "") ?? "";
+
+        if (!id) {
+          router.push(link ?? "");
+          return;
+        }
+
+        const element = document.getElementById(id);
+        if (element) element.scrollIntoView({ behavior: "instant" });
       }
     },
     [router]
   );
 
   const createThemeHandler = useCallback(
-    (theme: "light" | "dark" | "system") => () => {
+    (theme: Themes) => () => {
       setOpen(false);
       setTheme(theme);
     },
@@ -62,9 +75,11 @@ export function Menu() {
       <Button
         variant="secondary"
         className="h-8 gap-1.5 rounded-full border border-input bg-white px-2.5 text-muted-foreground shadow-xs select-none hover:bg-white dark:bg-input/30 dark:hover:bg-input/30"
-        onClick={() => setOpen(!open)}
+        onClick={() => {
+          setOpen(true);
+        }}
       >
-        <Search aria-hidden />
+        <SearchIcon aria-hidden />
 
         <span className="font-sans text-sm/4 font-medium sm:hidden">
           Search
@@ -80,32 +95,89 @@ export function Menu() {
           <Kbd className="w-5 min-w-5">K</Kbd>
         </KbdGroup>
       </Button>
+
       <CommandDialog open={open} onOpenChange={setOpen}>
-        <CommandInput placeholder="Type a command or search..." />
+        <CommandMenuInput />
+
         <CommandList className="min-h-80 supports-timeline-scroll:scroll-fade-y">
           <CommandEmpty>No results found.</CommandEmpty>
+
           <CommandLinkGroup
-            heading="Links"
+            heading="Page"
             links={MENU_NAV_ITEMS}
             onLinkSelect={handleOpenLink}
           />
+
           <CommandSeparator />
+
+          <CommandLinkGroup
+            heading="Social Links"
+            links={SOCIAL_LINKS}
+            onLinkSelect={handleOpenLink}
+          />
+
+          <CommandSeparator />
+
+          <CommandLinkGroup
+            heading="Experiences"
+            links={EXPERIENCES}
+            fallbackImage={"/images/experience.png"}
+            onLinkSelect={(item) => handleOpenLink(item, true)}
+          />
+
+          <CommandSeparator />
+
+          <CommandLinkGroup
+            heading="Projects"
+            links={PROJECTS}
+            fallbackIcon={BoxIcon}
+            onLinkSelect={(item) => handleOpenLink(item, true)}
+          />
+
+          <CommandSeparator />
+
           <CommandGroup heading="Theme">
             {MENU_THEME_ITEMS.map((item) => (
               <CommandItem
-                key={capitalizeFirstLetter(item.title)}
-                keywords={["theme"]}
+                key={item.title}
+                value={capitalizeFirstLetter(item.title)}
                 onSelect={createThemeHandler(item.title)}
               >
                 <item.icon />
-                {item.title}
+                {capitalizeFirstLetter(item.title)}
               </CommandItem>
             ))}
           </CommandGroup>
         </CommandList>
+
         <CommandMenuFooter />
       </CommandDialog>
     </>
+  );
+}
+
+function CommandMenuInput() {
+  const [searchValue, setSearchValue] = useState("");
+
+  return (
+    <CommandInput
+      placeholder="Type a command or search..."
+      value={searchValue}
+      onValueChange={setSearchValue}
+    />
+  );
+}
+
+type CommandLink = Project | Experience | MenuLinkItem;
+
+/**
+ * Type guard to check if a link is an Experience with positions
+ */
+function isExperienceWithPositions(link: CommandLink): link is Experience {
+  return (
+    "positions" in link &&
+    Array.isArray(link.positions) &&
+    link.positions.length > 0
   );
 }
 
@@ -113,28 +185,105 @@ function CommandLinkGroup({
   heading,
   links,
   fallbackIcon,
+  fallbackImage,
   onLinkSelect,
 }: {
   heading: string;
-  links: MenuLinkItem[];
-  fallbackIcon?: LucideIcon;
-  onLinkSelect: (href: string, openInNewTab?: boolean) => void;
+  links: CommandLink[];
+  fallbackIcon?: React.ComponentType<LucideProps>;
+  fallbackImage?: string;
+  onLinkSelect: (object: CommandLink, id?: boolean) => void;
 }) {
   return (
     <CommandGroup heading={heading}>
       {links.map((link) => {
-        const Icon = link?.icon ?? fallbackIcon ?? Fragment;
+        const Icon = link?.icon ?? fallbackIcon ?? React.Fragment;
+        const image = link?.iconImage ?? fallbackImage ?? "";
 
+        // If it's an experience with positions, render company + positions
+        if (isExperienceWithPositions(link)) {
+          return (
+            <React.Fragment key={link.id}>
+              {/* Company/Organization Item */}
+              <CommandItem
+                value={link.title}
+                keywords={link.keywords}
+                onSelect={() => onLinkSelect(link)}
+                className="font-medium"
+              >
+                {image ? (
+                  <Image
+                    className="rounded-sm corner-squircle supports-corner-shape:rounded-[50%]"
+                    src={image}
+                    alt={link.title}
+                    width={16}
+                    height={16}
+                    unoptimized
+                  />
+                ) : (
+                  <Icon />
+                )}
+                <span className="flex items-center gap-1.5">
+                  {link.title}
+                  {link.isCurrentEmployer && (
+                    <span className="flex size-1.5 animate-pulse rounded-full bg-green-500" />
+                  )}
+                </span>
+              </CommandItem>
+
+              {/* Position Items - nested under company */}
+              {link.positions.map((position) => (
+                <CommandItem
+                  key={position.id}
+                  value={position.title}
+                  keywords={[
+                    ...(link.keywords || []),
+                    position.title,
+                    ...(position.skills || []),
+                  ]}
+                  onSelect={() =>
+                    onLinkSelect(
+                      {
+                        ...link,
+                        id: position.id,
+                        title: `${position.title} at ${link.title}`,
+                      } as Experience,
+                      true
+                    )
+                  }
+                  className="pl-8 text-muted-foreground"
+                >
+                  <span className="flex size-1.5 rounded-full bg-zinc-400 dark:bg-zinc-500" />
+                  <span className="truncate">{position.title}</span>
+                  {position.employmentPeriod.end ? (
+                    <span className="ml-auto text-xs opacity-60">
+                      {position.employmentPeriod.start} –{" "}
+                      {position.employmentPeriod.end}
+                    </span>
+                  ) : (
+                    <span className="ml-auto text-xs opacity-60">
+                      {position.employmentPeriod.start} – Present
+                    </span>
+                  )}
+                </CommandItem>
+              ))}
+            </React.Fragment>
+          );
+        }
+
+        // Regular link item (for projects, social links, etc.)
+        const itemKey = "id" in link ? link.id : link.href;
         return (
           <CommandItem
-            key={link.href}
+            key={itemKey}
+            value={link.title}
             keywords={link.keywords}
-            onSelect={() => onLinkSelect(link.href, link.openInNewTab)}
+            onSelect={() => onLinkSelect(link)}
           >
-            {link?.iconImage ? (
+            {image ? (
               <Image
                 className="rounded-sm corner-squircle supports-corner-shape:rounded-[50%]"
-                src={link.iconImage}
+                src={image}
                 alt={link.title}
                 width={16}
                 height={16}
@@ -151,7 +300,7 @@ function CommandLinkGroup({
   );
 }
 
-type CommandKind = "command" | "page" | "link";
+type CommandKind = "command" | "page" | "link" | "project" | "experience";
 
 type CommandMetaMap = Map<
   string,
@@ -163,9 +312,34 @@ type CommandMetaMap = Map<
 function buildCommandMetaMap() {
   const commandMetaMap: CommandMetaMap = new Map();
 
-  commandMetaMap.set("Light", { commandKind: "command" });
-  commandMetaMap.set("Dark", { commandKind: "command" });
-  commandMetaMap.set("System", { commandKind: "command" });
+  MENU_THEME_ITEMS.forEach((item) => {
+    commandMetaMap.set(capitalizeFirstLetter(item.title), {
+      commandKind: "command",
+    });
+  });
+
+  SOCIAL_LINKS.forEach((item) => {
+    commandMetaMap.set(item.title, {
+      commandKind: "link",
+    });
+  });
+
+  EXPERIENCES.forEach((item) => {
+    commandMetaMap.set(item.title, {
+      commandKind: "experience",
+    });
+    item.positions.forEach((position) => {
+      commandMetaMap.set(position.title, {
+        commandKind: "experience",
+      });
+    });
+  });
+
+  PROJECTS.forEach((item) => {
+    commandMetaMap.set(item.title, {
+      commandKind: "project",
+    });
+  });
 
   return commandMetaMap;
 }
@@ -176,6 +350,8 @@ const ENTER_ACTION_LABELS: Record<CommandKind, string> = {
   command: "Run Command",
   page: "Go to Page",
   link: "Open Link",
+  project: "Go to Project",
+  experience: "Go to Experience",
 };
 
 function CommandMenuFooter() {
@@ -187,8 +363,8 @@ function CommandMenuFooter() {
     <>
       <div className="flex h-10" />
 
-      <div className="absolute inset-x-0 bottom-0 flex h-10 items-center justify-between gap-2 border border-t bg-zinc-100/30 px-4 text-xs font-medium dark:bg-zinc-800/30">
-        <MonitorIcon className="size-6 text-muted-foreground" aria-hidden />
+      <div className="absolute inset-x-0 bottom-0 flex h-10 items-center justify-between gap-2 border-t bg-zinc-100/30 px-4 text-xs font-medium dark:bg-zinc-800/30">
+        <Monitor className="size-6 text-muted-foreground" aria-hidden />
 
         <div className="flex shrink-0 items-center gap-2">
           <span>{ENTER_ACTION_LABELS[selectedCommandKind]}</span>
