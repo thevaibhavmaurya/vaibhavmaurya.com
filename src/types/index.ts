@@ -13,6 +13,7 @@ export type StateType = {
 
 /**
  * Represents an item in the navigation menu.
+ * @property {string} id - The unique identifier for the menu item as an anchor.
  * @property {string} title - The display name of the menu item.
  * @property {string} href - The URL or link associated with the menu item.
  * @property {LucideIcon} [icon] - An optional icon displayed alongside the menu title.
@@ -21,6 +22,7 @@ export type StateType = {
  * @property {boolean} [openInNewTab] - Flag to indicate if the link should open in a new tab.
  */
 export interface MenuLinkItem {
+  id?: string;
   title: string;
   href?: string;
   icon?: LucideIcon; // Optional Lucide icon to represent the menu link.
@@ -132,4 +134,5 @@ export enum URL_HASH_TYPE {
   GITHUB_CONTRIBUTIONS = "github-contributions",
   EXPERIENCES = "experiences",
   PROJECTS = "projects",
+  CONTACT = "contact",
 }

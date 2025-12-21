@@ -1,4 +1,5 @@
 import { About } from "@/components/about";
+import { ContactCTA } from "@/components/contact-cta";
 import { Divider } from "@/components/divider";
 import { Experiences } from "@/components/experiences";
 import { GitHubContributions } from "@/components/github-contributions";
@@ -29,6 +30,9 @@ export default function Home() {
       <Divider />
 
       <Projects />
+      <Divider hideBeforeBorder={false} />
+
+      <ContactCTA />
     </>
   );
 }

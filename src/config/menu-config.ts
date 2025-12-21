@@ -9,62 +9,43 @@ import {
   UserIcon,
 } from "lucide-react";
 
-import { addHashToString } from "@/lib/url";
 import type { MenuLinkItem } from "@/types";
 import { Themes, URL_HASH_TYPE } from "@/types";
-
-export const NAV_ITEMS: MenuLinkItem[] = [
-  {
-    title: "About",
-    href: "/",
-    icon: UserIcon,
-  },
-  {
-    title: "Experiences",
-    href: addHashToString(URL_HASH_TYPE.EXPERIENCES),
-    icon: NotebookPen,
-  },
-  {
-    title: "Projects",
-    href: addHashToString(URL_HASH_TYPE.PROJECTS),
-    icon: Code,
-  },
-] as const;
 
 export const MENU_NAV_ITEMS: MenuLinkItem[] = [
   {
     title: "Profile",
-    href: "/",
+    id: URL_HASH_TYPE.PROFILE,
     icon: UserIcon,
   },
   {
     title: "Overview",
-    href: addHashToString(URL_HASH_TYPE.OVERVIEW),
+    id: URL_HASH_TYPE.OVERVIEW,
     icon: Globe,
   },
   {
     title: "Social Links",
-    href: addHashToString(URL_HASH_TYPE.SOCIAL_LINKS),
+    id: URL_HASH_TYPE.SOCIAL_LINKS,
     icon: Globe,
   },
   {
     title: "About",
-    href: addHashToString(URL_HASH_TYPE.ABOUT),
+    id: URL_HASH_TYPE.ABOUT,
     icon: UserIcon,
   },
   {
     title: "Github Contributions",
-    href: addHashToString(URL_HASH_TYPE.GITHUB_CONTRIBUTIONS),
+    id: URL_HASH_TYPE.GITHUB_CONTRIBUTIONS,
     icon: GithubIcon,
   },
   {
     title: "Experiences",
-    href: addHashToString(URL_HASH_TYPE.EXPERIENCES),
+    id: URL_HASH_TYPE.EXPERIENCES,
     icon: NotebookPen,
   },
   {
     title: "Projects",
-    href: addHashToString(URL_HASH_TYPE.PROJECTS),
+    id: URL_HASH_TYPE.PROJECTS,
     icon: Code,
   },
 ] as const;

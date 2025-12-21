@@ -2,7 +2,13 @@
 
 import { useCommandState } from "cmdk";
 import type { LucideProps } from "lucide-react";
-import { BoxIcon, CornerDownLeftIcon, Monitor, SearchIcon } from "lucide-react";
+import {
+  BoxIcon,
+  CornerDownLeftIcon,
+  MailIcon,
+  Monitor,
+  SearchIcon,
+} from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useTheme } from "next-themes";
@@ -22,6 +28,7 @@ import { MENU_NAV_ITEMS, MENU_THEME_ITEMS } from "@/config/menu-config";
 import { EXPERIENCES } from "@/data/experiences";
 import { PROJECTS } from "@/data/projects";
 import { SOCIAL_LINKS } from "@/data/social-links";
+import { useContactEmail } from "@/hooks/use-contact-email";
 import { capitalizeFirstLetter } from "@/lib/string";
 import type { Experience, MenuLinkItem, Project, Themes } from "@/types";
 
@@ -30,6 +37,7 @@ import { Kbd, KbdGroup } from "../ui/kbd";
 import { Separator } from "../ui/separator";
 
 export function Menu() {
+  const { mailtoLink } = useContactEmail();
   const router = useRouter();
   const { setTheme } = useTheme();
   const [open, setOpen] = useState(false);
@@ -43,21 +51,21 @@ export function Menu() {
     (object: CommandLink, isId?: boolean) => {
       setOpen(false);
 
-      const link = "id" in object && isId ? `#${object?.id}` : object.href;
-
-      if (object.openInNewTab) {
-        window.open(link, "_blank", "noopener");
-      } else {
-        const id = link?.replace(/[#\/]/, "") ?? "";
-
+      if (isId && "id" in object) {
+        const id = object?.id ?? "";
         if (!id) {
-          router.push(link ?? "");
+          router.push("/");
           return;
         }
-
         const element = document.getElementById(id);
         if (element) element.scrollIntoView({ behavior: "instant" });
+        return;
       }
+
+      const link = object.href ?? "";
+
+      if (object.openInNewTab) window.open(link, "_blank", "noopener");
+      else router.push(link);
     },
     [router]
   );
@@ -69,6 +77,11 @@ export function Menu() {
     },
     [setTheme]
   );
+
+  const handleMailMe = useCallback(() => {
+    setOpen(false);
+    window.open(mailtoLink, "_blank", "noopener");
+  }, [mailtoLink]);
 
   return (
     <>
@@ -101,6 +114,17 @@ export function Menu() {
 
         <CommandList className="min-h-80 supports-timeline-scroll:scroll-fade-y">
           <CommandEmpty>No results found.</CommandEmpty>
+
+          <CommandGroup heading="Contact Me">
+            <CommandItem
+              value="Mail Me"
+              keywords={["mail", "me", "email", "contact"]}
+              onSelect={handleMailMe}
+            >
+              <MailIcon />
+              Mail Me
+            </CommandItem>
+          </CommandGroup>
 
           <CommandLinkGroup
             heading="Page"

@@ -48,7 +48,7 @@ export function Overview() {
 
           <CurrentLocalTimeItem timeZone={USER.timeZone} />
 
-          <EmailItem email={USER.email} />
+          <EmailItem />
 
           <IntroItem>
             <IntroItemIcon>

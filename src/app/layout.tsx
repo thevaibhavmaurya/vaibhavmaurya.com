@@ -2,6 +2,9 @@ import "../styles/globals.css";
 
 import type { Metadata } from "next";
 
+import { Divider } from "@/components/divider";
+import { Footer } from "@/components/footer";
+import { Header } from "@/components/header/header";
 import { Providers } from "@/components/providers";
 import { geistMono, ibmPlexSans } from "@/lib/fonts";
 
@@ -21,8 +24,18 @@ export default function RootLayout({
       className={`${ibmPlexSans.variable} ${geistMono.variable}`}
       suppressHydrationWarning
     >
-      <body className="max-w-screen overflow-x-hidden px-2">
-        <Providers>{children}</Providers>
+      <body>
+        <Providers>
+          <Header />
+          <main className="max-w-screen overflow-x-hidden px-2">
+            <div className="mx-auto max-w-3xl *:[[id]]:scroll-mt-22">
+              <Divider />
+              {children}
+              <Divider hideBeforeBorder={false} />
+            </div>
+          </main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );
