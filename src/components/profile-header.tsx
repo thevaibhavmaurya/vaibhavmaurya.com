@@ -1,4 +1,5 @@
 import { USER } from "@/data/user";
+import { URL_HASH_TYPE } from "@/types";
 
 import { IndiaFlagIcon } from "./icons/india-flag-icon";
 import { VerifiedIcon } from "./icons/verified-icon";
@@ -7,7 +8,10 @@ import { FlipSentences } from "./ui/flip-sentences";
 
 export function ProfileHeader() {
   return (
-    <Panel id="profile" className="screen-line-after flex border-x border-edge">
+    <Panel
+      id={URL_HASH_TYPE.PROFILE}
+      className="screen-line-after flex border-x border-edge"
+    >
       <div className="relative shrink-0 border-r border-edge">
         <div className="mx-0.5 my-[3px]">
           <img
