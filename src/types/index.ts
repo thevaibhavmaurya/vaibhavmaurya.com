@@ -1,6 +1,15 @@
 import type { LucideIcon } from "lucide-react";
 
 /**
+ * Represents a navigation item with a title, element ID, and icon for the desktop and mobile menu.
+ */
+export interface NavItem {
+  title: string;
+  elementId: string;
+  icon?: LucideIcon;
+}
+
+/**
  * Base interface for all menu items with common properties.
  */
 export interface MenuBaseItem {

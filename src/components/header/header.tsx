@@ -3,8 +3,10 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 import { ThemeToggle } from "../theme-toggle";
+import DesktopNav from "./desktop-nav";
 import { SiteHeaderWrapper } from "./header-wrapper";
 import { Menu } from "./menu";
+import MobileNav from "./mobile-nav";
 
 export const Header = () => {
   return (
@@ -31,9 +33,11 @@ export const Header = () => {
 
         <div className="flex-1" />
 
+        <DesktopNav className="hidden items-center gap-4 md:flex" />
         <Menu />
-        <span className="block h-2/4 w-px bg-edge" />
         <ThemeToggle />
+        <span className="block h-2/4 w-px bg-border md:hidden" />
+        <MobileNav className="md:hidden" />
       </div>
     </SiteHeaderWrapper>
   );

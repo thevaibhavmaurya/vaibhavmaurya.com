@@ -20,7 +20,7 @@ import { PROJECTS } from "@/data/projects";
 import { SOCIAL_LINKS } from "@/data/social-links";
 import { useContactEmail } from "@/hooks/use-contact-email";
 import { capitalizeFirstLetter } from "@/lib/string";
-import type { Experience, Themes } from "@/types";
+import { type Experience, type Themes, URL_HASH_TYPE } from "@/types";
 
 import { Button } from "../ui/button";
 import { Kbd, KbdGroup } from "../ui/kbd";
@@ -56,8 +56,12 @@ export function Menu() {
       }
 
       if ("id" in link && link.id) {
-        const element = document.getElementById(link.id);
-        if (element) element.scrollIntoView({ behavior: "instant" });
+        if (link.id === URL_HASH_TYPE.PROFILE) {
+          router.push("/");
+        } else {
+          const element = document.getElementById(link.id);
+          if (element) element.scrollIntoView({ behavior: "instant" });
+        }
       }
     },
     [router]

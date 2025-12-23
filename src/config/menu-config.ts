@@ -9,8 +9,26 @@ import {
   UserIcon,
 } from "lucide-react";
 
-import type { MenuLinkItem } from "@/types";
+import type { MenuLinkItem, NavItem } from "@/types";
 import { Themes, URL_HASH_TYPE } from "@/types";
+
+export const NavItems: NavItem[] = [
+  {
+    title: "Profile",
+    elementId: URL_HASH_TYPE.PROFILE,
+    icon: UserIcon,
+  },
+  {
+    title: "Experiences",
+    elementId: URL_HASH_TYPE.EXPERIENCES,
+    icon: NotebookPen,
+  },
+  {
+    title: "Projects",
+    elementId: URL_HASH_TYPE.PROJECTS,
+    icon: Code,
+  },
+];
 
 export const MENU_NAV_ITEMS: MenuLinkItem[] = [
   {
