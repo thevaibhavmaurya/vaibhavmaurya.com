@@ -2,51 +2,45 @@ import type { SocialLink } from "@/types";
 
 export const SOCIAL_LINKS: SocialLink[] = [
   {
-    iconImage:
-      "https://assets.chanhdai.com/images/link-icons/x.webp?t=1759581475",
+    iconImage: "/icons/x.webp",
     title: "X (formerly Twitter)",
-    description: "@iamncdai",
-    href: "https://x.com/iamncdai",
+    description: "@hevaibhavmaurya",
+    href: "https://x.com/hevaibhavmaurya",
     openInNewTab: true,
   },
   {
-    iconImage:
-      "https://assets.chanhdai.com/images/link-icons/github.webp?t=1759581475",
+    iconImage: "/icons/github.webp",
     title: "GitHub",
-    description: "ncdai",
-    href: "https://github.com/ncdai",
+    description: "thevaibhavmaurya",
+    href: "https://github.com/thevaibhavmaurya",
     openInNewTab: true,
   },
   {
-    iconImage:
-      "https://assets.chanhdai.com/images/link-icons/linkedin.webp?t=1759581475",
+    iconImage: "/icons/linkedin.webp",
     title: "LinkedIn",
-    description: "ncdai",
-    href: "https://linkedin.com/in/ncdai",
+    description: "thevaibhavmaurya",
+    href: "https://linkedin.com/in/thevaibhavmaurya",
     openInNewTab: true,
   },
   {
-    iconImage:
-      "https://assets.chanhdai.com/images/link-icons/dailydotdev.webp?t=1759581475",
-    title: "daily.dev",
-    description: "@ncdai",
-    href: "https://app.daily.dev/ncdai",
+    iconImage: "/icons/devto.webp",
+    title: "dev.to",
+    description: "@thevaibhavmaurya",
+    href: "https://dev.to/thevaibhavmaurya",
     openInNewTab: true,
   },
   {
-    iconImage:
-      "https://assets.chanhdai.com/images/link-icons/zalo.webp?t=1759581475",
-    title: "Zalo",
-    description: "Quaric",
-    href: "https://zalo.me/2353934240045322830",
+    iconImage: "/icons/instagram.webp",
+    title: "Instagram",
+    description: "@hevaibhavmaurya",
+    href: "https://www.instagram.com/hevaibhavmaurya",
     openInNewTab: true,
   },
   {
-    iconImage:
-      "https://assets.chanhdai.com/images/link-icons/youtube.webp?t=1759581475",
+    iconImage: "/icons/youtube.webp",
     title: "YouTube",
-    description: "@ncdai",
-    href: "https://www.youtube.com/@ncdai",
+    description: "@thevaibhavmaurya",
+    href: "https://www.youtube.com/@thevaibhavmaurya",
     openInNewTab: true,
   },
 ];

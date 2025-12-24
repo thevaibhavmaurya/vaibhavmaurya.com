@@ -161,7 +161,7 @@ export function Menu() {
           <CommandExperienceGroup
             heading="Experiences"
             links={EXPERIENCES}
-            fallbackImage={"/images/experience.png"}
+            fallbackImage={"/images/experience.webp"}
             onLinkSelect={handleOpenExperience}
           />
 

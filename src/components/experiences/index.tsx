@@ -19,7 +19,7 @@ export function Experiences() {
           <ExperienceItem
             key={experience.id}
             experience={experience}
-            fallbackImage={"/images/experience.png"}
+            fallbackImage={"/images/experience.webp"}
           />
         ))}
       </div>
