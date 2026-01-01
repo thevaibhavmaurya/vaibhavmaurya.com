@@ -1,7 +1,6 @@
 import { PROJECTS } from "@/data/projects";
 import { URL_HASH_TYPE } from "@/types";
 
-import { CollapsibleList } from "../collapsible-list";
 import { Panel, PanelHeader, PanelTitle, PanelTitleSup } from "../panel";
 import { ProjectItem } from "./project-item";
 
@@ -15,11 +14,11 @@ export function Projects() {
         </PanelTitle>
       </PanelHeader>
 
-      <CollapsibleList
-        items={PROJECTS}
-        max={4}
-        renderItem={(item) => <ProjectItem project={item} />}
-      />
+      <div className="pr-2 pl-4 *:[[id]]:scroll-mt-14">
+        {PROJECTS.map((project) => (
+          <ProjectItem key={project.id} project={project} />
+        ))}
+      </div>
     </Panel>
   );
 }
