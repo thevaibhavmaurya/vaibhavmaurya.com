@@ -3,326 +3,170 @@ import type { Experience } from "@/types";
 
 export const EXPERIENCES: Experience[] = [
   {
-    id: "simplamo",
-    title: "Simplamo Enterprise JSC",
-    iconImage: "https://assets.chanhdai.com/images/companies/simplamo.webp",
+    id: "kyte-research",
+    iconImage: "/icons/kyte.webp",
+    title: "Kyte Research",
     positions: [
       {
-        id: generateExperienceHash("simplamo", "senior-frontend-developer"),
-        title: "Senior Frontend Developer",
+        id: generateExperienceHash(
+          "kyte-research",
+          "software-development-engineer"
+        ),
+        title: "Software Development Engineer",
         employmentPeriod: {
-          start: "10.2022",
+          start: "02.2025",
         },
         employmentType: "Full-time",
         icon: "code",
-        description: `- Develop [AI Chat](https://help.simplamo.com/features/simplamo-ai/ai-chat/guide_simplamo_ai_chat?ref=IN-926722) and [AI Assistant](https://help.simplamo.com/features/simplamo-ai/ai-expert/aiexpert-rockdiscribe?ref=IN-926722) features.
-- Develop [Whiteboards](https://help.simplamo.com/features/whiteboard/overview?ref=IN-926722) with real-time collaboration.
-- Build and maintain the [Zalo Mini App](https://zalo.me/s/1736112917405511258/) for Simplamo with seamless integration.
-- Develop interactive chart and analytics widgets for the [Dashboard](https://help.simplamo.com/features/dashboard/overview) to enhance data visualization.
-- Develop and maintain core features to enhance functionality and user experience.
-- Ensure UI/UX consistency and adherence to standards.
-- Implement robust frontend solutions for web and mobile platforms.
-- Analyze technical capabilities and provide optimal solutions.`,
+        description: `- Building Airlyft.One, a Web3 platform for managing competitions and giveaways to drive business growth and engagement.
+- Integrated multiple social platforms including Instagram and Twitter (X) to enable automated workflows.
+- Built an Instagram automation system for scheduled and programmatic post publishing using n8n.
+- Designed and implemented automation pipelines powered by AI agents to streamline content and engagement workflows.
+- Improved platform features and resolved production issues to ensure a seamless user experience.
+- Implemented scalable and maintainable solutions using modern web frameworks and technologies to support a growing user base.`,
         skills: [
           "TypeScript",
+          "JavaScript",
           "Next.js",
-          "React Native",
-          "MobX",
-          "MobX-State-Tree",
-          "Tailwind CSS",
-          "Dify",
-          "Zalo Mini App",
-          "Agile",
-          "Teamwork",
-          "Research",
+          "React.js",
+          "Web3",
+          "n8n",
+          "Instagram API",
+          "Twitter (X) API",
+          "Automation",
+          "AI Agents",
+          "System Integration",
+          "Scalable Systems",
           "Problem-solving",
         ],
         isExpanded: true,
       },
-      {
-        id: generateExperienceHash("simplamo", "ui-design-lead"),
-        title: "UI Design Lead",
-        employmentPeriod: {
-          start: "10.2022",
-        },
-        employmentType: "Full-time",
-        icon: "design",
-        description: `- Ensure UI/UX consistency and high-quality standards.
-- Design intuitive, user-focused interfaces aligned with business goals.
-- Define and establish a cohesive UI style for Simplamo.`,
-        skills: ["Creativity", "UI/UX Design", "Figma"],
-      },
     ],
     isCurrentEmployer: true,
   },
   {
-    id: "quaric",
-    title: "Quaric Co., Ltd.",
-    iconImage: "https://assets.chanhdai.com/images/companies/quaric.svg",
+    id: "digital-mart-lab",
+    iconImage: "/icons/digitalmartlab.webp",
+    title: "Digital Mart Lab",
     positions: [
       {
-        id: generateExperienceHash("quaric", "design-engineer"),
-        title: "Design Engineer",
+        id: generateExperienceHash("digital-mart-lab", "web-developer"),
+        title: "Web Developer",
         employmentPeriod: {
-          start: "03.2024",
+          start: "09.2024",
+          end: "01.2025",
         },
-        employmentType: "Part-time",
+        employmentType: "Full-time",
         icon: "code",
-        description: `- Created Quaric Brand Identity.
-- Created the Quaric Design System to standardize design practices and accelerate development.
-
-In-house Project: [Quaric Website](https://quaric.com)
-- Designed the UI/UX for Quaric Website, delivering a seamless experience.
-- Developed online ordering to streamline purchases.
-- Integrated VNPAY-QR for secure transactions.
-- Registered the e-commerce site with [online.gov.vn](http://online.gov.vn/website/chi-tiet-115855) for compliance.
-
-In-house Project: [ZaDark](https://zadark.com)
-- Build and maintain ZaDark.com with Docusaurus, integrating AdSense.
-- Develop and maintain the ZaDark extension for Zalo Web on Chrome, Safari, Edge, and Firefox — with 20k+ active users via Chrome Web Store (as of Sep 2025).`,
+        description: `- Built and delivered web applications from scratch to production-ready deployment.
+- Developed SaaS products aimed at improving digital accessibility for users.
+- Implemented responsive and scalable UI using modern frontend tools.
+- Integrated backend services and databases to support dynamic application features.
+- Worked on deployment and hosting workflows to ensure stable production environments.`,
         skills: [
+          "React.js",
+          "Node.js",
+          "MySQL",
+          "Tailwind CSS",
+          "shadcn/ui",
+          "WordPress",
+          "Hostinger",
+          "JavaScript",
+          "SaaS Development",
+          "Problem-solving",
+        ],
+        isExpanded: true,
+      },
+    ],
+  },
+  {
+    id: "aara-technologies",
+    iconImage: "/icons/aara.webp",
+    title: "Aara Technologies",
+    positions: [
+      {
+        id: generateExperienceHash("aara-technologies", "react-js-developer"),
+        title: "React.js Developer",
+        employmentPeriod: {
+          start: "07.2024",
+          end: "09.2024",
+        },
+        employmentType: "Full-time",
+        icon: "code",
+        description: `- Engineered B2B and B2C applications, increasing user engagement by 30%.
+- Contributed to ERP system development, improving operational efficiency by 25%.
+- Implemented features for invoice generation and payment tracking.
+- Mentored 5 frontend trainees, teaching React.js, JavaScript, Tailwind CSS, and Material UI.
+- Improved overall team productivity through code reviews and technical guidance.`,
+        skills: [
+          "React.js",
+          "JavaScript",
+          "Tailwind CSS",
+          "Material UI",
+          "ERP Systems",
+          "Mentorship",
+          "Teamwork",
+          "Frontend Architecture",
+        ],
+        isExpanded: true,
+      },
+    ],
+  },
+  {
+    id: "open-source",
+    iconImage: "/icons/opensource.webp",
+    title: "Open Source Programs",
+    positions: [
+      {
+        id: generateExperienceHash("open-source", "gssoc-contributor"),
+        title: "GirlScript Summer of Code (GSSOC)",
+        employmentPeriod: {
+          start: "05.2024",
+          end: "07.2024",
+        },
+        employmentType: "Program",
+        icon: "code",
+        description: `- Participated in GirlScript Summer of Code (GSSOC), a 3-month open-source program by GirlScript Foundation.
+- Contributed to multiple open-source projects across different repositories.
+- Collaborated with mentors and contributors to review, improve, and ship features.
+- Worked with modern frontend technologies to build and enhance UI components.`,
+        skills: [
+          "React.js",
           "Next.js",
-          "Strapi",
-          "Auth0",
-          "VNPAY-QR",
-          "Docker",
-          "NGINX",
-          "Google Cloud",
-          "Docusaurus",
-          "Extension",
-          "UI/UX Design",
-          "UX Writing",
-          "Design System",
-          "Brand Design",
-          "Figma",
-          "Research",
+          "Tailwind CSS",
+          "Bootstrap",
+          "Redux",
+          "Open Source",
+          "Collaboration",
+          "Git",
+          "GitHub",
         ],
         isExpanded: true,
       },
       {
-        id: generateExperienceHash("quaric", "founder-director"),
-        title: "Founder & Director",
+        id: generateExperienceHash("open-source", "hacktoberfest-contributor"),
+        title: "Hacktoberfest",
         employmentPeriod: {
-          start: "03.2024",
+          start: "10.2023",
+          end: "10.2023",
         },
-        employmentType: "Part-time",
-        icon: "idea",
-        description: `- Lead and manage the company's strategy.
-- Oversee technical teams and product development.
-- Manage relationships with customers and partners.`,
-        skills: ["Business Ownership", "Business Law", "Business Tax"],
-      },
-    ],
-    isCurrentEmployer: true,
-  },
-  {
-    id: "tungtung",
-    title: "Tung Tung JSC",
-    iconImage: "https://assets.chanhdai.com/images/companies/tungtung.webp",
-    positions: [
-      {
-        id: generateExperienceHash("tungtung", "web-developer"),
-        title: "Web Developer",
-        employmentPeriod: {
-          start: "2020",
-          end: "2022",
-        },
-        employmentType: "Full-time",
-        description: `- Built a scalable design system for consistency and efficiency.
-- Built a complex rich-text editor based on ProseMirror and Slate for customizable content creation.
-- Integrated APIs with the Backend Team to enhance functionality.`,
+        employmentType: "Program",
         icon: "code",
+        description: `- Successfully completed Hacktoberfest, a month-long open-source program by DigitalOcean, Appwrite, and GitHub.
+- Contributed to multiple open-source repositories using industry-standard workflows.
+- Led the implementation of features such as a certificate generator.
+- Gained recognition and earned swags for meaningful open-source contributions.`,
         skills: [
-          "React",
-          "Redux",
-          "Storybook",
-          "Lerna",
-          "Agile",
-          "Teamwork",
-          "Research",
-        ],
-      },
-      {
-        id: generateExperienceHash("tungtung", "mobile-developer"),
-        title: "Mobile Developer",
-        employmentPeriod: {
-          start: "2019",
-          end: "2020",
-        },
-        employmentType: "Full-time",
-        description: `- Rebuilt the app with React Native for better UX and performance.
-- Integrated MoMo and in-app purchases for seamless payments.
-- Optimized deployment for staging and production.
-- Published on App Store and Google Play, ensuring compliance.`,
-        icon: "code",
-        skills: [
-          "React Native",
-          "Redux",
-          "MoMo Payment API",
-          "App Store",
-          "Google Play Store",
-          "App Center",
-          "Agile",
-          "Teamwork",
-          "Research",
-        ],
-      },
-      {
-        id: generateExperienceHash("tungtung", "uiux-designer"),
-        title: "UI/UX Designer",
-        employmentPeriod: {
-          start: "2018",
-          end: "2019",
-        },
-        employmentType: "Full-time",
-        description: `- Designed a Landing Page for enterprise clients.
-- Redesigned the Online Quiz Platform for a modern look on web and mobile.
-- Redesigned the Pricing interface for individual customers.
-- Enhanced UX by improving usability, navigation, and user flow.`,
-        icon: "design",
-        skills: ["UI/UX Design", "Sketch"],
-      },
-    ],
-  },
-  {
-    id: "freelance",
-    title: "Freelance",
-    positions: [
-      {
-        id: generateExperienceHash("freelance", "fullstack-developer"),
-        title: "Full-stack Developer",
-        employmentPeriod: {
-          start: "2018",
-          end: "2020",
-        },
-        employmentType: "Part-time",
-        description: `- Built an order management website with real-time delivery tracking.
-- Developed an e-commerce site for bird's nest products.
-- Created a map to display monitoring station data.
-- Designed a customizable WordPress landing page.`,
-        icon: "code",
-        skills: [
-          "Laravel",
-          "React",
-          "Express.js",
-          "Socket.IO",
-          "MongoDB",
-          "Firebase",
-          "WordPress",
-          "Docker",
-          "NGINX",
-        ],
-      },
-      {
-        id: generateExperienceHash("freelance", "graphic-uiux-designer"),
-        title: "Graphic & UI/UX Designer",
-        employmentPeriod: {
-          start: "2018",
-          end: "2019",
-        },
-        employmentType: "Part-time",
-        description: "Designed logos, posters, ads, and UI.",
-        icon: "design",
-        skills: [
-          "Creativity",
-          "UI/UX Design",
-          "Graphic Design",
-          "Sketch",
-          "Adobe Photoshop",
-          "Adobe Illustrator",
-        ],
-      },
-    ],
-  },
-  {
-    id: "education",
-    title: "Education",
-    positions: [
-      {
-        id: generateExperienceHash("education", "university-of-science"),
-        title: "University of Science — VNUHCM",
-        employmentPeriod: {
-          start: "08.2018",
-          end: "2026",
-        },
-        icon: "education",
-        description: `- Currently studying for a Bachelor's degree in Information Systems.
-- Language Proficiency: B1 English Level.
-- Achieved several awards, including:
-  - Bronze Medal — 10th Design, Manufacturing, and Application Award 2022
-  - 2nd Prize — Business Startup Competition 2019`,
-        skills: [
-          "C++",
-          "Java",
-          "Python",
-          "Data Structures",
-          "Algorithms",
-          "Advanced Databases",
-          "Systems Design",
-          "Distributed Systems",
-          "Software Engineering",
-          "Self-learning",
-          "Teamwork",
-          "Presentation",
-        ],
-      },
-      {
-        id: generateExperienceHash("education", "ly-tu-trong-high-school"),
-        title: "Ly Tu Trong High School for the Gifted — Can Tho City",
-        employmentPeriod: {
-          start: "08.2015",
-          end: "06.2018",
-        },
-        icon: "education",
-        description: `- Student of the Specialized Computer Science Program.
-- Granted direct admission to university due to achieving 3rd Prize at the national level.
-- [Achieved numerous awards](https://baocantho.com.vn/nguyen-chanh-dai-17-tuoi-va-19-giai-thuong-a97348.html) at city and national levels, including:
-  - [3rd Prize](https://muctim.tuoitre.vn/cong-cu-ho-tro-viec-day-va-hoc-55107.htm) — National Science and Engineering Fair 2018 (ViSEF)
-  - 1st Prize — Can Tho City Science and Engineering Fair 2018
-  - Creativity Award — Binh Duong Hackathon 2017
-  - Consolation Prize — National Youth and Children's Creativity Contest 2016
-  - [1st Prize](https://www.youtube.com/watch?v=OYgugvjqU4A) — Can Tho City Youth and Children's Creativity Contest 2016
-  - 3rd Prize — National Young Informatics Contest 2016
-- Achieved the title of Outstanding Student from Grade 10-12.
-- Selected for the National Excellent Student Contest in Informatics for two consecutive years during high school.
-- Honored on the school's "Hall of Fame" for academic achievements.
-- Developed a feature using Node.js and Pandoc to recognize multiple-choice questions from .docx files and upload them to an [online quiz platform](https://youtu.be/QjR99wdmTyo) I created.
-- Developed websites based on Laravel framework.
-- Built websites with PHP and MySQL, following the MVC architecture.`,
-        skills: [
-          "Algorithms",
-          "C++",
-          "PHP",
-          "MySQL",
-          "Laravel",
-          "Node.js",
-          "Pandoc",
-          "Self-learning",
-        ],
-      },
-      {
-        id: generateExperienceHash("education", "thuan-hung-secondary-school"),
-        title: "Thuan Hung Secondary School",
-        employmentPeriod: {
-          start: "08.2011",
-          end: "06.2015",
-        },
-        icon: "education",
-        description: `- Recognized as the most outstanding student of the district.
-- Achieved numerous awards at city and national levels:
-  - Consolation Prize — National Young Informatics Contest 2015
-  - Consolation Prize — National Young Informatics Contest 2014
-  - 1st Prize — Can Tho City Young Informatics Contest 2014
-- Achieved the title of Outstanding Student from Grade 6-9.
-- Developed websites using the open-source NukeViet CMS.`,
-        skills: [
-          "Pascal",
-          "NukeViet",
           "HTML",
           "CSS",
           "JavaScript",
-          "Self-learning",
+          "Open Source",
+          "Git",
+          "GitHub",
+          "Problem-solving",
+          "Project Ownership",
         ],
+        isExpanded: true,
       },
     ],
   },
