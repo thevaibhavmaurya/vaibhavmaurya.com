@@ -40,11 +40,8 @@ I also enjoy writing to reflect on what I learn and share my thoughts along the 
 You can follow me on Dev.to to read my blogs and learnings:  
 👉 https://dev.to/thevaibhavmaurya
   `,
-  avatar:
-    "https://assets.vaibhavmaurya.com/images/vaibhavmaurya-avatar-ghibli.webp",
-  ogImage:
-    "https://assets.chanhdai.com/images/screenshot-og-image-light.png?t=1764345394",
-  namePronunciationUrl: "/audio/chanhdai.mp3",
+  avatar: "/profile/avatar.webp",
+  ogImage: "https://vaibhavmaurya.com/manifest/screenshot-og-image-light.png",
   timeZone: "Asia/Kolkata",
   keywords: [
     "software engineer",

@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
   transpilePackages: ["next-mdx-remote"],
   reactCompiler: true,
   images: {
-    remotePatterns: [{ hostname: "pbs.twimg.com" }],
+    qualities: [75, 100],
   },
 };
 

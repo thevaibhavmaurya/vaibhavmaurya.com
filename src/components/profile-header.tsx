@@ -17,12 +17,12 @@ export function ProfileHeader() {
           <img
             className="size-32 rounded-full ring-1 ring-edge ring-offset-2 ring-offset-background select-none sm:size-40"
             alt={`${USER.displayName}'s avatar`}
-            src="https://pbs.twimg.com/profile_images/1783518704266854401/cctY_h1P_400x400.jpg"
+            src={USER.avatar}
             fetchPriority="high"
           />
         </div>
         <a
-          href="https://vietnam.gov.vn/about-viet-nam"
+          href="https://www.india.gov.in/explore-india"
           target="_blank"
           rel="noreferrer"
           className="absolute top-0 left-0"
