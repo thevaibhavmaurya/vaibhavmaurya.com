@@ -18,7 +18,7 @@ export const EXPERIENCES: Experience[] = [
         },
         employmentType: "Full-time",
         icon: "code",
-        description: `- Building Airlyft.One, a Web3 platform for managing competitions and giveaways to drive business growth and engagement.
+        description: `- Building [Airlyft.One](https://airlyft.one), a Web3 platform for managing competitions and giveaways to drive business growth and engagement.
 - Integrated multiple social platforms including Instagram and Twitter (X) to enable automated workflows.
 - Built an Instagram automation system for scheduled and programmatic post publishing using n8n.
 - Designed and implemented automation pipelines powered by AI agents to streamline content and engagement workflows.

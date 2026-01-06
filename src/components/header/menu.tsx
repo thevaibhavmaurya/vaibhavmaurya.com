@@ -131,14 +131,14 @@ export function Menu() {
         <CommandList className="min-h-80 supports-timeline-scroll:scroll-fade-y">
           <CommandEmpty>No results found.</CommandEmpty>
 
-          <CommandGroup heading="Contact Me">
+          <CommandGroup heading="Get in Touch">
             <CommandItem
-              value="Mail Me"
+              value="Send me an email"
               keywords={["mail", "me", "email", "contact"]}
               onSelect={handleMailMe}
             >
               <MailIcon />
-              Mail Me
+              Send me an email
             </CommandItem>
           </CommandGroup>
 

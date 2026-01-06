@@ -14,7 +14,7 @@ export function Projects() {
         </PanelTitle>
       </PanelHeader>
 
-      <div className="pr-2 pl-4 *:[[id]]:scroll-mt-14">
+      <div className="*:[[id]]:scroll-mt-14">
         {PROJECTS.map((project) => (
           <ProjectItem key={project.id} project={project} />
         ))}

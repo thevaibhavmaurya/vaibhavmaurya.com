@@ -197,6 +197,10 @@ function buildCommandMetaMap() {
     });
   });
 
+  commandMetaMap.set("Send me an email", {
+    commandKind: "command",
+  });
+
   return commandMetaMap;
 }
 
