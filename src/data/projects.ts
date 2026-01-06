@@ -22,7 +22,7 @@ export const PROJECTS: Project[] = [
 - Live: https://crypto-vault-one.vercel.app/
 - GitHub: https://github.com/thevaibhavmaurya/CryptoVault
 - Demo: https://www.youtube.com/watch?v=hmPLyYaOOas`,
-    isExpanded: true,
+    isExpanded: false,
   },
   {
     id: generateProjectHash("rexteria"),
@@ -52,7 +52,7 @@ export const PROJECTS: Project[] = [
 - Live: https://modtopia.vercel.app/
 - GitHub: https://github.com/thevaibhavmaurya/Rexteria
 - Demo: https://www.youtube.com/watch?v=xopUB6D-jEc`,
-    isExpanded: true,
+    isExpanded: false,
   },
   {
     id: generateProjectHash("zyprolix-player"),
@@ -74,7 +74,7 @@ export const PROJECTS: Project[] = [
 - Live: https://zyprolix-player.vercel.app/
 - GitHub: https://github.com/thevaibhavmaurya/Zyprolix-Player
 - Demo: https://www.instagram.com/reel/C2SPEzYNgAK/`,
-    isExpanded: true,
+    isExpanded: false,
   },
   {
     id: generateProjectHash("physics-concept"),
@@ -95,7 +95,7 @@ export const PROJECTS: Project[] = [
 **Links:**
 - Live: https://restitution.onrender.com/
 - GitHub: https://github.com/thevaibhavmaurya/Animation-P5js`,
-    isExpanded: true,
+    isExpanded: false,
   },
   {
     id: generateProjectHash("chingari-design"),
@@ -115,6 +115,6 @@ export const PROJECTS: Project[] = [
 
 **Links:**
 - Prototype: https://www.figma.com/proto/EzXsQGMRm84IQTuykDqgeT/Chingari`,
-    isExpanded: true,
+    isExpanded: false,
   },
 ];
