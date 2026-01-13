@@ -23,11 +23,11 @@ export const USER = {
       company: "Airlyft",
       website: "https://airlyft.com",
     },
-    {
-      title: "Founder",
-      company: "Authial",
-      website: "https://authial.vercel.app",
-    },
+    // {
+    //   title: "Founder",
+    //   company: "Authial",
+    //   website: "https://authial.vercel.app",
+    // },
   ],
   about: `
 Hello, 👋  
