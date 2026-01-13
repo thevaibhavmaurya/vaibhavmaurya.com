@@ -1,3 +1,5 @@
+"use client";
+
 import { BoxIcon, InfinityIcon, LinkIcon } from "lucide-react";
 import Image from "next/image";
 
@@ -16,6 +18,7 @@ import {
 import { ProseMono } from "@/components/ui/typography";
 import { UTM_PARAMS } from "@/config/site-config";
 import { addQueryParams } from "@/lib/url";
+import { useExpandStore } from "@/store/expand-store";
 import type { Project } from "@/types";
 
 import { Markdown } from "../markdown";
@@ -30,11 +33,25 @@ export function ProjectItem({
   const { start, end } = project.period;
   const isOngoing = !end;
   const isSinglePeriod = end === start;
+  const isExpanded = useExpandStore((state) =>
+    state.isProjectExpanded(project.id)
+  );
+  const expandProject = useExpandStore((state) => state.expandProject);
+  const collapseProject = useExpandStore((state) => state.collapseProject);
+
+  const handleOpenChange = (open: boolean) => {
+    if (open) {
+      expandProject(project.id);
+    } else {
+      collapseProject(project.id);
+    }
+  };
 
   return (
     <CollapsibleWithContext
       id={project.id}
-      defaultOpen={project.isExpanded}
+      open={isExpanded}
+      onOpenChange={handleOpenChange}
       asChild
     >
       <div className={className}>

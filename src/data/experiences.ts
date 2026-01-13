@@ -3,7 +3,7 @@ import type { Experience } from "@/types";
 
 export const EXPERIENCES: Experience[] = [
   {
-    id: "kyte-research",
+    id: generateExperienceHash("kyte-research"),
     iconImage: "/icons/kyte.webp",
     title: "Kyte Research",
     positions: [
@@ -45,7 +45,7 @@ export const EXPERIENCES: Experience[] = [
     isCurrentEmployer: true,
   },
   {
-    id: "digital-mart-lab",
+    id: generateExperienceHash("digital-mart-lab"),
     iconImage: "/icons/digitalmartlab.webp",
     title: "Digital Mart Lab",
     positions: [
@@ -80,7 +80,7 @@ export const EXPERIENCES: Experience[] = [
     ],
   },
   {
-    id: "aara-technologies",
+    id: generateExperienceHash("aara-technologies"),
     iconImage: "/icons/aara.webp",
     title: "Aara Technologies",
     positions: [
@@ -113,7 +113,7 @@ export const EXPERIENCES: Experience[] = [
     ],
   },
   {
-    id: "open-source",
+    id: generateExperienceHash("open-source"),
     iconImage: "/icons/opensource.webp",
     title: "Open Source Programs",
     positions: [

@@ -1,3 +1,5 @@
+"use client";
+
 import { InfinityIcon } from "lucide-react";
 
 import { Markdown } from "@/components/markdown";
@@ -10,6 +12,7 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { ProseMono } from "@/components/ui/typography";
 import { cn } from "@/lib/utils";
+import { useExpandStore } from "@/store/expand-store";
 import type { ExperiencePosition } from "@/types";
 
 import { Tag } from "../ui/tag";
@@ -22,10 +25,26 @@ export function ExperiencePositionItem({
 }) {
   const { start, end } = position.employmentPeriod;
   const isOngoing = !end;
+  const isExpanded = useExpandStore((state) =>
+    state.isExperienceExpanded(position.id)
+  );
+  const expandExperience = useExpandStore((state) => state.expandExperience);
+  const collapseExperience = useExpandStore(
+    (state) => state.collapseExperience
+  );
+
+  const handleOpenChange = (open: boolean) => {
+    if (open) {
+      expandExperience(position.id);
+    } else {
+      collapseExperience(position.id);
+    }
+  };
 
   return (
     <CollapsibleWithContext
-      defaultOpen={position.isExpanded}
+      open={isExpanded}
+      onOpenChange={handleOpenChange}
       id={position.id}
       asChild
     >

@@ -54,7 +54,7 @@ export function urlToName(url: string) {
  */
 export function generateUrlHash(hash: string[]): string {
   if (hash.length === 0) return "home"; // Return home when there's no data
-  return hash.join("-");
+  return hash.join("--");
 }
 
 export function generateExperienceHash(
