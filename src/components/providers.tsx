@@ -4,7 +4,7 @@ import { NuqsAdapter } from "nuqs/adapters/next/app";
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <NuqsAdapter>
-      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+      <ThemeProvider attribute="class" defaultTheme="dark">
         {children}
       </ThemeProvider>
     </NuqsAdapter>
