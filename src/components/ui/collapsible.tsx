@@ -32,13 +32,31 @@ const useCollapsible = () => {
 
 function CollapsibleWithContext({
   defaultOpen,
+  open: controlledOpen,
+  onOpenChange: controlledOnOpenChange,
   ...props
-}: React.ComponentProps<typeof Collapsible>) {
-  const [open, setOpen] = useState(defaultOpen ?? false);
+}: React.ComponentProps<typeof Collapsible> & {
+  open?: boolean;
+}) {
+  const [internalOpen, setInternalOpen] = useState(defaultOpen ?? false);
+
+  // Use controlled open if provided, otherwise use internal state
+  const isControlled = controlledOpen !== undefined;
+  const open = isControlled ? controlledOpen : internalOpen;
+
+  const handleOpenChange = (value: boolean) => {
+    if (isControlled) {
+      // If controlled, call the provided onOpenChange
+      controlledOnOpenChange?.(value);
+    } else {
+      // If uncontrolled, update internal state
+      setInternalOpen(value);
+    }
+  };
 
   return (
     <CollapsibleContext.Provider value={{ open }}>
-      <Collapsible open={open} onOpenChange={setOpen} {...props} />
+      <Collapsible open={open} onOpenChange={handleOpenChange} {...props} />
     </CollapsibleContext.Provider>
   );
 }

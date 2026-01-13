@@ -49,6 +49,7 @@
     "tailwind-merge": "^3.4.0",
     "unist-builder": "3.0.0",
     "unist-util-visit": "^5.0.0",
+    "zustand": "^5.0.2",
     "wrangler": "^4.57.0"
   },
   "devDependencies": {

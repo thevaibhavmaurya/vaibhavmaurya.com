@@ -20,6 +20,7 @@ import { PROJECTS } from "@/data/projects";
 import { SOCIAL_LINKS } from "@/data/social-links";
 import { useContactEmail } from "@/hooks/use-contact-email";
 import { capitalizeFirstLetter } from "@/lib/string";
+import { useExpandStore } from "@/store/expand-store";
 import { type Experience, type Themes, URL_HASH_TYPE } from "@/types";
 
 import { Button } from "../ui/button";
@@ -37,6 +38,7 @@ export function Menu() {
   const router = useRouter();
   const { setTheme } = useTheme();
   const [open, setOpen] = useState(false);
+  const { expandExperience, expandProject } = useExpandStore();
 
   useHotkeys("mod+k, slash", (e) => {
     e.preventDefault();
@@ -46,6 +48,11 @@ export function Menu() {
   const handleOpenLink = useCallback(
     (link: CommandLink, isHref: boolean = false) => {
       setOpen(false);
+
+      const isProject = "period" in link && "skills" in link;
+      if (isProject) {
+        expandProject(link.id);
+      }
 
       if ("href" in link && link.href && isHref) {
         if (link.openInNewTab) {
@@ -64,26 +71,32 @@ export function Menu() {
         }
       }
     },
-    [router]
+    [router, expandProject]
   );
 
   const handleOpenExperience = useCallback(
     (experience: Experience, index?: number) => {
       setOpen(false);
 
-      if (index) {
+      if (index !== undefined) {
         const position = experience.positions[index];
         if (position) {
-          const element = document.getElementById(position.id);
+          expandExperience(position.id);
+          const element = document.getElementById(experience.id);
           if (element) element.scrollIntoView({ behavior: "instant" });
           return;
         }
       }
 
+      if (experience.positions.length > 0) {
+        const firstPosition = experience.positions[0];
+        expandExperience(firstPosition.id);
+      }
+
       const element = document.getElementById(experience.id);
       if (element) element.scrollIntoView({ behavior: "instant" });
     },
-    []
+    [expandExperience]
   );
 
   const createThemeHandler = useCallback(
