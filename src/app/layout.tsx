@@ -1,12 +1,23 @@
 import "../styles/globals.css";
 
 import type { Metadata, Viewport } from "next";
+import type { WebSite, WithContext } from "schema-dts";
 
 import { Providers } from "@/components/providers";
 import { SITE_INFO } from "@/config/site-config";
 import { USER } from "@/data/user";
 import { geistMono, ibmPlexSans } from "@/lib/fonts";
 import { Themes } from "@/types";
+
+function getWebSiteJsonLd(): WithContext<WebSite> {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: SITE_INFO.name,
+    url: SITE_INFO.url,
+    alternateName: [USER.username],
+  };
+}
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_INFO.url),
@@ -85,6 +96,28 @@ export default function RootLayout({
       className={`${ibmPlexSans.variable} ${geistMono.variable}`}
       suppressHydrationWarning
     >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+(function () {
+  try {
+    const theme = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const isDark = theme === "dark" || (!theme && prefersDark);
+    document.documentElement.classList.toggle("dark", isDark);
+  } catch (e) {}
+})();
+            `,
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(getWebSiteJsonLd()).replace(/</g, "\\u003c"),
+          }}
+        />
+      </head>
       <body>
         <Providers>{children}</Providers>
       </body>
