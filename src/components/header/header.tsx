@@ -34,8 +34,8 @@ export const Header = () => {
 
         <DesktopNav className="hidden items-center gap-4 md:flex" />
         <Menu />
-        <ThemeToggle />
-        <span className="block h-2/4 w-px bg-border md:hidden" />
+        {/* <ThemeToggle /> */}
+        {/* <span className="block h-2/4 w-px bg-border md:hidden" /> */}
         <MobileNav className="md:hidden" />
       </div>
     </SiteHeaderWrapper>
