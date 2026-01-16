@@ -1,3 +1,4 @@
+import Script from "next/script";
 import type { ProfilePage as PageSchema, WithContext } from "schema-dts";
 
 import { About } from "@/components/about";
@@ -18,13 +19,16 @@ import { SOCIAL_LINKS } from "@/data/social-links";
 import { USER } from "@/data/user";
 
 export default function Home() {
+  const jsonLd = getPageJsonLd();
+
   return (
     <>
       <PageViewTracker />
-      <script
+      <Script
+        id="profile-page-jsonld"
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(getPageJsonLd()).replace(/</g, "\\u003c"),
+          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
         }}
       />
 

@@ -100,6 +100,15 @@ export default function RootLayout({
         <script
           dangerouslySetInnerHTML={{
             __html: `
+// Polyfill for __name function used by Next.js and next-themes
+if (typeof __name === 'undefined') {
+  window.__name = function(fn, name) {
+    return fn;
+  };
+  if (typeof globalThis !== 'undefined') {
+    globalThis.__name = window.__name;
+  }
+}
 (function () {
   try {
     const theme = localStorage.getItem("theme");
