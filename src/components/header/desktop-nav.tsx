@@ -5,6 +5,7 @@ import type { MouseEventHandler } from "react";
 import { useCallback } from "react";
 
 import { NavItems } from "@/config/menu-config";
+import { trackEvent } from "@/lib/mixpanel";
 import { cn } from "@/lib/utils";
 import { type NavItem, URL_HASH_TYPE } from "@/types";
 
@@ -13,6 +14,11 @@ export default function DesktopNav({ className }: { className?: string }) {
 
   const handleClick = useCallback(
     (item: NavItem) => {
+      trackEvent("nav_item_click", {
+        nav_item: item.title,
+        nav_type: "desktop",
+      });
+
       if (item.elementId === URL_HASH_TYPE.PROFILE) {
         router.push("/");
       } else {

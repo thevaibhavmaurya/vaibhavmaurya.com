@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/tooltip";
 import { ProseMono } from "@/components/ui/typography";
 import { UTM_PARAMS } from "@/config/site-config";
+import { trackEvent } from "@/lib/mixpanel";
 import { addQueryParams } from "@/lib/url";
 import { useExpandStore } from "@/store/expand-store";
 import type { Project } from "@/types";
@@ -42,6 +43,9 @@ export function ProjectItem({
   const handleOpenChange = (open: boolean) => {
     if (open) {
       expandProject(project.id);
+      trackEvent("project_click", {
+        project_title: project.title,
+      });
     } else {
       collapseProject(project.id);
     }
@@ -114,6 +118,12 @@ export function ProjectItem({
                     href={addQueryParams(project.href ?? "", UTM_PARAMS)}
                     target="_blank"
                     rel="noopener"
+                    onClick={() => {
+                      trackEvent("project_link_open", {
+                        project_title: project.title,
+                        project_url: project.href,
+                      });
+                    }}
                   >
                     <LinkIcon className="pointer-events-none size-4" />
                     <span className="sr-only">Open Project Link</span>

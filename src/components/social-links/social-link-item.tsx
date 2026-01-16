@@ -1,6 +1,9 @@
+"use client";
+
 import { ArrowUpRightIcon } from "lucide-react";
 import Image from "next/image";
 
+import { trackEvent } from "@/lib/mixpanel";
 import { cn } from "@/lib/utils";
 import type { SocialLink } from "@/types";
 
@@ -20,6 +23,12 @@ export function SocialLinkItem({
       href={href}
       target="_blank"
       rel="noopener"
+      onClick={() => {
+        trackEvent("social_link_click", {
+          social_platform: title,
+          social_url: href,
+        });
+      }}
     >
       <div className="relative size-12 shrink-0">
         <Image

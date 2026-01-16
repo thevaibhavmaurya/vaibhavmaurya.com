@@ -1,8 +1,11 @@
+"use client";
+
 import {
   SITE_INFO,
   SOURCE_CODE_GITHUB_URL,
   UTM_PARAMS,
 } from "@/config/site-config";
+import { trackEvent } from "@/lib/mixpanel";
 import { addQueryParams } from "@/lib/url";
 
 export function Footer() {
@@ -16,6 +19,11 @@ export function Footer() {
             href={addQueryParams("https://chanhdai.com/", UTM_PARAMS)}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => {
+              trackEvent("footer_link_click", {
+                link_type: "chanhdai",
+              });
+            }}
           >
             Chanhdai
           </a>{" "}
@@ -29,6 +37,11 @@ export function Footer() {
             href="https://x.com/hevaibhavmaurya"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => {
+              trackEvent("footer_link_click", {
+                link_type: "twitter",
+              });
+            }}
           >
             Vaibhav
           </a>
@@ -38,6 +51,11 @@ export function Footer() {
             href={SOURCE_CODE_GITHUB_URL}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => {
+              trackEvent("footer_link_click", {
+                link_type: "github",
+              });
+            }}
           >
             GitHub
           </a>
@@ -50,6 +68,11 @@ export function Footer() {
             href={`${SITE_INFO.url}/llms.txt`}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => {
+              trackEvent("footer_link_click", {
+                link_type: "llms_txt",
+              });
+            }}
           >
             AI usage policy (llms.txt)
           </a>
