@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/collapsible";
 import { Separator } from "@/components/ui/separator";
 import { ProseMono } from "@/components/ui/typography";
+import { trackEvent } from "@/lib/mixpanel";
 import { cn } from "@/lib/utils";
 import { useExpandStore } from "@/store/expand-store";
 import type { ExperiencePosition } from "@/types";
@@ -20,8 +21,10 @@ import { ExperienceIcon } from "./experience-position-icon";
 
 export function ExperiencePositionItem({
   position,
+  companyName,
 }: {
   position: ExperiencePosition;
+  companyName: string;
 }) {
   const { start, end } = position.employmentPeriod;
   const isOngoing = !end;
@@ -36,6 +39,11 @@ export function ExperiencePositionItem({
   const handleOpenChange = (open: boolean) => {
     if (open) {
       expandExperience(position.id);
+      trackEvent("experience_click", {
+        company_name: companyName,
+        position_title: position.title,
+        experience_id: position.id,
+      });
     } else {
       collapseExperience(position.id);
     }

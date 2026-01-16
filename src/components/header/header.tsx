@@ -17,7 +17,7 @@ export const Header = () => {
       )}
     >
       <div className="screen-line-before screen-line-after mx-auto flex h-12 max-w-3xl items-center justify-between gap-2 border-x border-edge px-2">
-        <Link href="/" className="h-8 [&_svg]:h-full">
+        <Link href="/" aria-label="Brand Logo" className="h-8 [&_svg]:h-full">
           <svg
             viewBox="0 0 19 9"
             fill="none"

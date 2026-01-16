@@ -3,7 +3,7 @@
 import { BoxIcon, MailIcon, SearchIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useTheme } from "next-themes";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useHotkeys } from "react-hotkeys-hook";
 
 import {
@@ -19,6 +19,7 @@ import { EXPERIENCES } from "@/data/experiences";
 import { PROJECTS } from "@/data/projects";
 import { SOCIAL_LINKS } from "@/data/social-links";
 import { useContactEmail } from "@/hooks/use-contact-email";
+import { trackEvent } from "@/lib/mixpanel";
 import { capitalizeFirstLetter } from "@/lib/string";
 import { useExpandStore } from "@/store/expand-store";
 import { type Experience, type Themes, URL_HASH_TYPE } from "@/types";
@@ -45,11 +46,34 @@ export function Menu() {
     setOpen((open) => !open);
   });
 
+  useEffect(() => {
+    if (open) {
+      trackEvent("menu_open");
+    }
+  }, [open]);
+
   const handleOpenLink = useCallback(
     (link: CommandLink, isHref: boolean = false) => {
       setOpen(false);
 
       const isProject = "period" in link && "skills" in link;
+      const isSocialLink = SOCIAL_LINKS.some((sl) => sl.title === link.title);
+      const isNavItem = MENU_NAV_ITEMS.some((ni) => ni.title === link.title);
+
+      let section = "page";
+      if (isProject) {
+        section = "projects";
+      } else if (isSocialLink) {
+        section = "social-links";
+      } else if (isNavItem) {
+        section = "page";
+      }
+
+      trackEvent("menu_item_click", {
+        section,
+        ...(isProject && { project_title: link.title }),
+      });
+
       if (isProject) {
         expandProject(link.id);
       }
@@ -78,15 +102,25 @@ export function Menu() {
     (experience: Experience, index?: number) => {
       setOpen(false);
 
+      const trackingProps: Record<string, string> = {
+        section: "experiences",
+        company_name: experience.title,
+      };
+
       if (index !== undefined) {
         const position = experience.positions[index];
         if (position) {
+          trackingProps.position_title = position.title;
+          trackEvent("menu_item_click", trackingProps);
+
           expandExperience(position.id);
           const element = document.getElementById(experience.id);
           if (element) element.scrollIntoView({ behavior: "instant" });
           return;
         }
       }
+
+      trackEvent("menu_item_click", trackingProps);
 
       if (experience.positions.length > 0) {
         const firstPosition = experience.positions[0];
@@ -109,6 +143,9 @@ export function Menu() {
 
   const handleMailMe = useCallback(() => {
     setOpen(false);
+    trackEvent("menu_item_click", {
+      section: "contact",
+    });
     window.open(mailtoLink, "_blank", "noopener");
   }, [mailtoLink]);
 

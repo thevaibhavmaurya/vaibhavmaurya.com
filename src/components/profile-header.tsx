@@ -1,4 +1,7 @@
+"use client";
+
 import { USER } from "@/data/user";
+import { trackEvent } from "@/lib/mixpanel";
 import { URL_HASH_TYPE } from "@/types";
 
 import { IndiaFlagIcon } from "./icons/india-flag-icon";
@@ -25,7 +28,13 @@ export function ProfileHeader() {
           href="https://www.india.gov.in/explore-india"
           target="_blank"
           rel="noreferrer"
+          aria-label="India Flag"
           className="absolute top-0 left-0"
+          onClick={() => {
+            trackEvent("flag_click", {
+              flag_country: "India",
+            });
+          }}
         >
           <IndiaFlagIcon className="h-6 md:h-8" />
         </a>

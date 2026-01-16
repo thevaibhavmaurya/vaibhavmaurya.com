@@ -8,6 +8,7 @@ import { Footer } from "@/components/footer";
 import { GitHubContributions } from "@/components/github-contributions";
 import { Header } from "@/components/header/header";
 import { Overview } from "@/components/overview";
+import { PageViewTracker } from "@/components/page-view-tracker";
 import { ProfileHeader } from "@/components/profile-header";
 import { Projects } from "@/components/projects";
 import { SocialLinks } from "@/components/social-links";
@@ -19,6 +20,7 @@ import { USER } from "@/data/user";
 export default function Home() {
   return (
     <>
+      <PageViewTracker />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

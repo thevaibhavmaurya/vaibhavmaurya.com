@@ -11,6 +11,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { NavItems } from "@/config/menu-config";
+import { trackEvent } from "@/lib/mixpanel";
 import { cn } from "@/lib/utils";
 import type { NavItem } from "@/types";
 import { URL_HASH_TYPE } from "@/types";
@@ -20,6 +21,11 @@ export default function MobileNav({ className }: { className?: string }) {
 
   const handleClick = useCallback(
     (item: NavItem) => {
+      trackEvent("nav_item_click", {
+        nav_item: item.title,
+        nav_type: "mobile",
+      });
+
       if (item.elementId === URL_HASH_TYPE.PROFILE) {
         router.push("/");
       } else {

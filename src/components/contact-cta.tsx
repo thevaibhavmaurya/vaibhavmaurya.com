@@ -3,6 +3,7 @@
 import { MailIcon, SendIcon } from "lucide-react";
 
 import { useContactEmail } from "@/hooks/use-contact-email";
+import { trackEvent } from "@/lib/mixpanel";
 import { URL_HASH_TYPE } from "@/types";
 
 import { Panel, PanelContent, PanelHeader, PanelTitle } from "./panel";
@@ -33,7 +34,16 @@ export function ContactCTA() {
           </div>
 
           <Button asChild size="lg" className="group relative overflow-hidden">
-            <a href={mailtoLink}>
+            <a
+              href={mailtoLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => {
+                trackEvent("contact_email_click", {
+                  email_type: "cta_button",
+                });
+              }}
+            >
               <SendIcon className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               Send me an Email
             </a>
@@ -44,6 +54,11 @@ export function ContactCTA() {
             <a
               href={mailtoLink}
               className="font-medium text-foreground underline-offset-4 hover:underline"
+              onClick={() => {
+                trackEvent("contact_email_click", {
+                  email_type: "email_link",
+                });
+              }}
             >
               {email}
             </a>

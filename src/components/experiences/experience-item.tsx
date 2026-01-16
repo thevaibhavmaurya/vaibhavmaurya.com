@@ -45,7 +45,11 @@ export function ExperienceItem({
 
       <div className="relative space-y-4 before:absolute before:left-3 before:h-full before:w-px before:bg-border">
         {experience.positions.map((position) => (
-          <ExperiencePositionItem key={position.id} position={position} />
+          <ExperiencePositionItem
+            key={position.id}
+            position={position}
+            companyName={experience.title}
+          />
         ))}
       </div>
     </div>
