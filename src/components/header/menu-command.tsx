@@ -1,6 +1,6 @@
 import { useCommandState } from "cmdk";
 import type { LucideProps } from "lucide-react";
-import { CornerDownLeftIcon, Monitor } from "lucide-react";
+import { CornerDownLeftIcon } from "lucide-react";
 import Image from "next/image";
 import React, { useState } from "react";
 
@@ -16,6 +16,7 @@ import { SOCIAL_LINKS } from "@/data/social-links";
 import { capitalizeFirstLetter } from "@/lib/string";
 import type { Experience, MenuLinkItem, Project, SocialLink } from "@/types";
 
+import { BrandIcon } from "../icons/brand-icon";
 import { Kbd } from "../ui/kbd";
 import { Separator } from "../ui/separator";
 
@@ -224,7 +225,7 @@ export function CommandMenuFooter() {
       <div className="flex h-10" />
 
       <div className="absolute inset-x-0 bottom-0 flex h-10 items-center justify-between gap-2 border-t bg-zinc-100/30 px-4 text-xs font-medium dark:bg-zinc-800/30">
-        <Monitor className="size-6 text-muted-foreground" aria-hidden />
+        <BrandIcon className="size-6 text-muted-foreground" aria-hidden />
 
         <div className="flex shrink-0 items-center gap-2">
           <span>{ENTER_ACTION_LABELS[selectedCommandKind]}</span>
